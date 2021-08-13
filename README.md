@@ -5,6 +5,7 @@
 
 ###Indice dei contenuti
 <li><a href="./1-installazione-k3s">Installazione K3S su raspberry (1 server + 1 agent)</a></li>
+<li><a href="./2-deploy-configurazione-traefik">Configurazione e deploy Traefik nel cluster</a></li>
 
 ### link alla documentazione utilizzata
 
