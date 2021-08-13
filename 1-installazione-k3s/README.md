@@ -1,7 +1,7 @@
 # Pihole su RaspberryPi cluster K3S (1 master - 1 agent) 
 
  
-## Installazione K3S
+## Installazione [K3S](https://k3s.io/)
 
 ### Nodo server
 	
@@ -16,6 +16,8 @@ sudo su -
 ```
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" K3S_NODE_NAME="rasp2ModB" sh -s - --disable=traefik
 ```
+> il parametro --disable=traefik serve per non abilitare il deploy automatico di [Traefik](https://traefik.io/) incluso in k3s. Questo è utile se si ha la necessità di modificare la configurazione di default di traefik come, ad esmepio, utilizzare una porta diversa dalla 80. Procederemo poi ad installarlo manualmente più avanti. 
+
 - al termine dell'installazione, andiamo a recuperare il node-token
 	
 ```
