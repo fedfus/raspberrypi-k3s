@@ -138,8 +138,8 @@ Nel nostro caso, avremo quindi un file *~/.kube/config* e un file *~/.kube/home-
 ovvero *KUBECONFIG* = valore attuale di *KUBECONFIG* concatenato(:) *home-server.yaml* concatenato(:) ~/.kube/config .
 > N.B.: il valore di *KUBECONFIG* si perderà alla chiusura del terminale. Per renderlo persistente, è possibile sfruttare il file ~/.bashrc .
 
-Una ulteriore opzione può essere quella di utilizzare un software di gestione e monitoraggio di cluster kubernetes come [Lens](https://k8slens.dev/) 
-Con Lens è possibile copiare direttamente dal menù del tool (File -> add Cluster) il contenuto del file home-server.yaml modificato in precedenza
+Una ulteriore opzione può essere quella di utilizzare un software di gestione e monitoraggio di cluster kubernetes come [Lens](https://k8slens.dev/) .
+Lens importa automaticamente tutti i file di configurazione presenti nella directory ~/.kube, ma è anche possibile incollare direttamente il contenuto del file home-server.yaml dal menù del tool (File -> add Cluster) .
 
 <p align="center"><img src="./images/lens-cluster-setup.png?raw=true" alt="lens-cluster-setup" /></p>
 
