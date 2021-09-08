@@ -10,6 +10,13 @@ Per eseguire i seguenti step, è necessario diventare l'utente *root*
 ```
 sudo su -
 ```
+
+### prerequisiti
+modificare il file /boot/cmdline.txt aggiungendo alla fine del file (sulla stessa riga)
+
+``` 
+cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1
+```
 	
 - installazione di K3S 
 	
