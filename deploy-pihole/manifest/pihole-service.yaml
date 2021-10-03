@@ -12,7 +12,7 @@ spec:
   externalTrafficPolicy: Local
   loadBalancerIP: 192.168.0.240
   ports:
-  - port: 80
+  - port: 9085
     targetPort: 80
     name: pihole-admin
   - port: 53
