@@ -10,9 +10,9 @@ spec:
   selector:
     app: homebridge
   externalTrafficPolicy: Local
-  loadBalancerIP: 192.168.0.239
+  loadBalancerIP: 192.168.0.235
   ports:
   - port: 80
-    targetPort: homebridge-http
+    targetPort: homebridge-port
     name: homebridge-gui
   type: LoadBalancer
