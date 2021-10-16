@@ -16,13 +16,14 @@ spec:
         app: homebridge
       name: homebridge
     spec:
-      securityContext:
-        fsGroup: 2000
+      # securityContext:
+      #   runAsUser: 1000
+      #   fsGroup: 1000
       #hostNetwork: true
       #dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: homebridge
-        image: oznu/homebridge:no-avahi-arm32v6
+        image: oznu/homebridge:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 18581

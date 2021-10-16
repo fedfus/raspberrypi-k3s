@@ -1,0 +1,251 @@
+Restoring backup...
+
+Restoring Homebridge storage to /homebridge
+Restoring storage
+Restoring storage
+Restoring webosTv
+Restoring keyFilez
+Restoring keyFile
+Restoring info_C80210710948
+Restoring persist
+Restoring IdentifierCache.FA4087BA7301.json
+Restoring IdentifierCache.DDDC046AF177.json
+Restoring IdentifierCache.D9A2F7F9056A.json
+Restoring IdentifierCache.74614F7402A4.json
+Restoring IdentifierCache.2EA9647ACE87.json
+Restoring IdentifierCache.0ECD3FC67EA3.json
+Restoring IdentifierCache.0EC5DC1BFDD6.json
+Restoring IdentifierCache.0EB718C73E85.json
+Restoring IdentifierCache.0E834B482863.json
+Restoring IdentifierCache.0E2D4E95C9EF.json
+Restoring IdentifierCache.0E271E54BD50.json
+Restoring IdentifierCache.0E23CB030827.json
+Restoring IdentifierCache.0E08AF941805.json
+Restoring IdentifierCache.008B132A5C46.json
+Restoring AccessoryInfo.FA4087BA7301.json
+Restoring AccessoryInfo.DDDC046AF177.json
+Restoring AccessoryInfo.D9A2F7F9056A.json
+Restoring AccessoryInfo.74614F7402A4.json
+Restoring AccessoryInfo.2EA9647ACE87.json
+Restoring AccessoryInfo.0ECD3FC67EA3.json
+Restoring AccessoryInfo.0EC5DC1BFDD6.json
+Restoring AccessoryInfo.0EB718C73E85.json
+Restoring AccessoryInfo.0E834B482863.json
+Restoring AccessoryInfo.0E2D4E95C9EF.json
+Restoring AccessoryInfo.0E271E54BD50.json
+Restoring AccessoryInfo.0E23CB030827.json
+Restoring AccessoryInfo.0E08AF941805.json
+Restoring AccessoryInfo.008B132A5C46.json
+Restoring package.json
+Restoring package-lock.json
+Restoring keyFile
+Restoring homebridge.log-20201225.gz
+Restoring fritzbox
+Restoring config.json
+Restoring backups
+Restoring config-backups
+Restoring config.json.1630526070424
+Restoring config.json.1630525999389
+Restoring config.json.1629407027991
+Restoring config.json.1629406918320
+Restoring config.json.1629406650799
+Restoring config.json.1629406272124
+Restoring config.json.1629405834834
+Restoring config.json.1629405832528
+Restoring config.json.1629405662967
+Restoring config.json.1629405661111
+Restoring config.json.1629405611986
+Restoring config.json.1629405557365
+Restoring config.json.1629405395710
+Restoring config.json.1629404844794
+Restoring config.json.1629395840264
+Restoring config.json.1629395819730
+Restoring backup
+Restoring config.json.1588455498661
+Restoring config.json.1588455391586
+Restoring config.json.1588455186162
+Restoring config.json.1588454752716
+Restoring config.json.1588454329101
+Restoring config.json.1588453913008
+Restoring config.json.1588453729744
+Restoring config.json.1588453425048
+Restoring config.json.1588453422187
+Restoring config.json.1588453202877
+Restoring config.json.1588453144425
+Restoring config.json.1588453119934
+Restoring config.json.1588452782312
+Restoring config.json.1588452037795
+Restoring config.json.1588451841781
+Restoring config.json.1588451605553
+Restoring config.json.1588451525373
+Restoring config.json.1588451434332
+Restoring config.json.1588451430591
+Restoring config.json.1588449749712
+Restoring config.json.1588449442516
+Restoring config.json.1588449414098
+Restoring config.json.1588449282581
+Restoring config.json.1588449140264
+Restoring config.json.1588449060386
+Restoring config.json.1588448747986
+Restoring config.json.1588448073817
+Restoring config.json.1588445907960
+Restoring config.json.1588440542384
+Restoring config.json.1588440413321
+Restoring config.json.1588439489737
+Restoring auth.json
+Restoring accessories
+Restoring uiAccessoriesLayout.json
+Restoring cachedAccessories.0EC5DC1BFDD6
+Restoring cachedAccessories.0EB718C73E85
+Restoring cachedAccessories.0E834B482863
+Restoring cachedAccessories.0E2D4E95C9EF
+Restoring cachedAccessories.0E271E54BD50
+Restoring cachedAccessories.0E23CB030827
+Restoring cachedAccessories.0E08AF941805
+Restoring cachedAccessories
+Restoring .cachedAccessories.bak
+Restoring .cachedAccessories.0EB718C73E85.bak
+Restoring .cachedAccessories.0E834B482863.bak
+Restoring .cachedAccessories.0E2D4E95C9EF.bak
+Restoring .cachedAccessories.0E271E54BD50.bak
+Restoring .cachedAccessories.0E08AF941805.bak
+Restoring .webosTv
+Restoring keyFile_192168030_C80210710948
+Restoring inputsConfg_C80210710948
+Restoring inputsAvailable_C80210710948
+Restoring info_C80210710948
+Restoring .uix-secrets
+Restoring .uix-hb-service-homebridge-startup.json
+Restoring .uix-dashboard.json
+File restore complete.
+
+Restoring plugins...
+
+Installing homebridge-fritz-platform...
+USER: root
+DIR: /homebridge
+CMD: npm install --save homebridge-fritz-platform@6.0.14
+
+
+Command succeeded!.
+
+Installing homebridge-mqttthing...
+USER: root
+DIR: /homebridge
+CMD: npm install --save homebridge-mqttthing@1.1.30
+
+
+Command succeeded!.
+
+Installing homebridge-webos-tv...
+USER: root
+DIR: /homebridge
+CMD: npm install --save homebridge-webos-tv@2.2.2
+
+npm ERR! code EINVAL
+npm ERR! syscall lchown
+npm ERR! path /homebridge/node_modules/.staging/minimist-85521ad5
+npm ERR! errno -22
+npm ERR! EINVAL: invalid argument, lchown '/homebridge/node_modules/.staging/minimist-85521ad5'
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2021-10-15T20_15_36_692Z-debug.log
+Failed to install homebridge-webos-tv.
+
+Installing @milo526/homebridge-tuya-web...
+USER: root
+DIR: /homebridge
+CMD: npm install --save @milo526/homebridge-tuya-web@1.0.2
+
+npm ERR! code EINVAL
+npm ERR! syscall lchown
+npm ERR! path /homebridge/node_modules/.staging/mkdirp-38ffc0d2
+npm ERR! errno -22
+npm ERR! EINVAL: invalid argument, lchown '/homebridge/node_modules/.staging/mkdirp-38ffc0d2'
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2021-10-15T20_16_16_870Z-debug.log
+Failed to install @milo526/homebridge-tuya-web.
+
+Installing homebridge-dummy...
+USER: root
+DIR: /homebridge
+CMD: npm install --save homebridge-dummy@0.5.0
+
+npm ERR! code EINVAL
+npm ERR! syscall lchown
+npm ERR! path /homebridge/node_modules/.staging/@types/http-cache-semantics-842c978b
+npm ERR! errno -22
+npm ERR! EINVAL: invalid argument, lchown '/homebridge/node_modules/.staging/@types/http-cache-semantics-842c978b'
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2021-10-15T20_17_23_507Z-debug.log
+Failed to install homebridge-dummy.
+
+Installing homebridge-magichome-dynamic-platform...
+USER: root
+DIR: /homebridge
+CMD: npm install --save homebridge-magichome-dynamic-platform@1.9.4
+
+npm ERR! code EINVAL
+npm ERR! syscall lchown
+npm ERR! path /homebridge/node_modules/.staging/has-symbols-68c03e4b
+npm ERR! errno -22
+npm ERR! EINVAL: invalid argument, lchown '/homebridge/node_modules/.staging/has-symbols-68c03e4b'
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2021-10-15T20_18_01_559Z-debug.log
+Failed to install homebridge-magichome-dynamic-platform.
+
+Installing homebridge-shelly...
+USER: root
+DIR: /homebridge
+CMD: npm install --save homebridge-shelly@0.19.1
+
+
+Command succeeded!.
+
+Installing homebridge-skyq-tvremote...
+USER: root
+DIR: /homebridge
+CMD: npm install --save homebridge-skyq-tvremote@1.4.1
+
+npm WARN deprecated request-promise-native@1.0.9: request-promise-native has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm ERR! code EINVAL
+npm ERR! syscall lchown
+npm ERR! path /homebridge/node_modules/.staging/lodash.debounce-b1693830
+npm ERR! errno -22
+npm ERR! EINVAL: invalid argument, lchown '/homebridge/node_modules/.staging/lodash.debounce-b1693830'
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2021-10-15T20_26_05_291Z-debug.log
+Failed to install homebridge-skyq-tvremote.
+
+Installing homebridge-tuya...
+USER: root
+DIR: /homebridge
+CMD: npm install --save homebridge-tuya@2.0.1
+
+npm ERR! code EAI_AGAIN
+npm ERR! errno EAI_AGAIN
+npm ERR! request to https://registry.npmjs.org/homebridge-tuya failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2021-10-15T20_26_16_120Z-debug.log
+Failed to install homebridge-tuya.
+
+Installing homebridge-z2m...
+USER: root
+DIR: /homebridge
+CMD: npm install --save homebridge-z2m@1.6.0
+
+npm ERR! code EAI_AGAIN
+npm ERR! errno EAI_AGAIN
+npm ERR! request to https://registry.npmjs.org/homebridge-z2m failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2021-10-15T20_26_29_747Z-debug.log
+Failed to install homebridge-z2m.
