@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-pihole
+spec:
+  capacity:
+    storage: 300M
+  accessModes:
+    - ReadWriteMany    #volume can be mounted as RW by single node
+  nfs:
+    path: /volume1/k3s-data/pihole/data
+    server: 192.168.1.100
+  persistentVolumeReclaimPolicy: Retain
+  claimRef:
+    namespace: pihole
+    name: pvc-pihole

@@ -38,6 +38,7 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: node-red-pvc
+              subPath: _nodered
       volumes:
         - name: node-red-pvc
           persistentVolumeClaim:

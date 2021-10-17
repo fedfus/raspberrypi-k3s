@@ -1,11 +1,11 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: nfs
+  name: rasp4-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
-  storageClassName: nfs
+  - ReadWriteOnce
+  storageClassName: rasp4-local-storage
   resources:
     requests:
       storage: 10Gi

@@ -4,10 +4,10 @@ metadata:
   name: pvc-pihole
   namespace: pihole
 spec:
-  volumeName: pihole-pv
+  volumeName: pv-pihole
   accessModes:
     - ReadWriteMany
-  storageClassName: rasp4-local-storage
+  storageClassName: ""
   resources:
     requests:
       storage: 300M

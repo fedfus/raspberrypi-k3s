@@ -15,4 +15,7 @@ spec:
   - port: 80
     targetPort: homebridge-port
     name: homebridge-gui
+  - port: 53055
+    targetPort: homebridge-srv
+    name: homebridge-srv
   type: LoadBalancer

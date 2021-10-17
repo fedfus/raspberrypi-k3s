@@ -19,8 +19,8 @@ spec:
       # securityContext:
       #   runAsUser: 1000
       #   fsGroup: 1000
-      #hostNetwork: true
-      #dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: homebridge
         image: oznu/homebridge:latest
@@ -28,8 +28,8 @@ spec:
         ports:
         - containerPort: 18581
           name: homebridge-port
-        - containerPort: 51828
-          name: webhook
+        - containerPort: 53055
+          name: homebridge-srv
         env:
         - name: tz
           value: 'Europe/Rome'
@@ -45,6 +45,7 @@ spec:
         volumeMounts:
         - name: homebridge
           mountPath: /homebridge
+          subPath: _homebridge
           readOnly: false
       volumes:
       - name: homebridge

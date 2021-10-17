@@ -1,10 +1,13 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: mosquitto-log-pvc
+  name: mosquitto-config-pvc
   namespace: iot
 spec:
-  storageClassName: rasp4-local-storage
+  volumeName: mosquitto-config-pv
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
   resources:
     requests:
       storage: 100Mi
