@@ -12,10 +12,10 @@ spec:
   externalTrafficPolicy: Local
   loadBalancerIP: 192.168.0.235
   ports:
-  - port: 80
+  - port: 40080
     targetPort: homebridge-port
     name: homebridge-gui
-  - port: 53055
-    targetPort: homebridge-srv
-    name: homebridge-srv
+  # - port: 53055
+  #   targetPort: homebridge-srv
+  #   name: homebridge-srv
   type: LoadBalancer
