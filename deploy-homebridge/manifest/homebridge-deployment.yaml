@@ -16,19 +16,20 @@ spec:
         app: homebridge
       name: homebridge
     spec:
-      securityContext:
-        fsGroup: 2000
-      #hostNetwork: true
-      #dnsPolicy: ClusterFirstWithHostNet
+      # securityContext:
+      #   runAsUser: 1000
+      #   fsGroup: 1000
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: homebridge
-        image: oznu/homebridge:no-avahi-arm32v6
-        imagePullPolicy: Always
+        image: oznu/homebridge:latest
+        imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8581
-          name: homebridge-http
-        - containerPort: 51828
-          name: webhook
+        - containerPort: 18581
+          name: homebridge-port
+        - containerPort: 53055
+          name: homebridge-srv
         env:
         - name: tz
           value: 'Europe/Rome'
@@ -40,10 +41,11 @@ spec:
         - name: HOMEBRIDGE_CONFIG_UI
           value: '1'
         - name: HOMEBRIDGE_CONFIG_UI_PORT
-          value: '8581'
+          value: '18581'
         volumeMounts:
         - name: homebridge
           mountPath: /homebridge
+          subPath: _homebridge
           readOnly: false
       volumes:
       - name: homebridge

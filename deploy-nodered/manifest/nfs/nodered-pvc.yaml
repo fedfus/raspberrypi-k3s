@@ -7,9 +7,10 @@ metadata:
   name: node-red-pvc
   namespace: nodered
 spec:
+  volumeName: nodered-data-pv
   accessModes:
     - ReadWriteMany
-  storageClassName: rasp4-local-storage
+  storageClassName: ""
   resources:
     requests:
       storage: 1Gi

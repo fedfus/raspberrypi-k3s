@@ -4,7 +4,10 @@ metadata:
   name: mosquitto-log-pvc
   namespace: iot
 spec:
-  storageClassName: rasp4-local-storage
+  volumeName: mosquitto-log-pv
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
   resources:
     requests:
       storage: 100Mi

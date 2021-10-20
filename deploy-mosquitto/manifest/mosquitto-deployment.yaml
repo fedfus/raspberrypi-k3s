@@ -26,10 +26,13 @@ spec:
           volumeMounts:
           - name: mosquitto-config-file
             mountPath: /mosquitto/config
+            subPath: _mosquitto-config
           - name: mosquitto-log
             mountPath: /mosquitto/log
+            subPath: _mosquitto-log
           - name: mosquitto-data
             mountPath: /mosquitto/data
+            subPath: _mosquitto-data
       volumes:
       - name: mosquitto-config-file
         persistentVolumeClaim:
