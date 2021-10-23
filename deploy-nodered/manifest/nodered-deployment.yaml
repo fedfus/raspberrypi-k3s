@@ -30,6 +30,10 @@ spec:
             - containerPort: 1880
               name: nodered-tcp
               protocol: TCP
+            - containerPort: 80
+              name: alexa-port
+              protocol: TCP
+            - containerPort: 3455
           resources: {}
           env:
             - name: TZ
