@@ -11,9 +11,10 @@ spec:
   selector:
     app: nodered
   externalTrafficPolicy: Local
+  type: LoadBalancer
   loadBalancerIP: 192.168.0.238
   ports:
-  - port: 80
-    targetPort: 1880
-    name: nodered-gui
-  type: LoadBalancer
+      - port: 48082
+        targetPort: nodered-tcp
+        name: nodered-tcp
+        protocol: TCP

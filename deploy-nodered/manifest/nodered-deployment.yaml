@@ -2,25 +2,30 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: node-red
-  name: node-red
+    app: nodered
+  name: nodered
   namespace: nodered
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: node-red
+      app: nodered
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: node-red
+        app: nodered
     spec:
+      securityContext:
+        runAsUser: 1000
+        fsGroup: 1000
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
         - image: nodered/node-red:latest
-          imagePullPolicy: Always
-          name: node-red
+          imagePullPolicy: IfNotPresent
+          name: nodered
           ports:
             - containerPort: 1880
               name: nodered-tcp
@@ -37,9 +42,9 @@ spec:
               value: "10880"
           volumeMounts:
             - mountPath: /data
-              name: node-red-pvc
+              name: nodered-pvc
               subPath: _nodered
       volumes:
-        - name: node-red-pvc
+        - name: nodered-pvc
           persistentVolumeClaim:
             claimName: node-red-pvc
