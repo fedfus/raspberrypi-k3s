@@ -10,7 +10,7 @@ spec:
   volumeName: mosquitto-pv
   accessModes:
     - ReadWriteMany
-  storageClassName: rasp4-local-storage
+  storageClassName: local-storage
   resources:
     requests:
       storage: 1Gi
