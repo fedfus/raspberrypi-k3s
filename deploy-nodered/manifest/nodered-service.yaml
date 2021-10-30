@@ -18,3 +18,7 @@ spec:
         targetPort: nodered-tcp
         name: nodered-tcp
         protocol: TCP
+      - port: 80
+        targetPort: alexa-port
+        name: alexa-tcp
+        protocol: TCP
