@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mosquitto
+  name: mosquitto-pvc
+  namespace: mosquitto
+spec:
+  volumeName: mosquitto-pv
+  accessModes:
+    - ReadWriteMany
+  storageClassName: local-storage
+  resources:
+    requests:
+      storage: 1Gi
+status: {}

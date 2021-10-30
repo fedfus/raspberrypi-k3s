@@ -1,22 +1,20 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: mosquitto-service
-  namespace: iot
+  namespace: mosquitto
+  annotations:
+    metallb.universe.tf/address-pool: default
+    metallb.universe.tf/allow-shared-ip: "mosquitto"
 spec:
-  type: NodePort
   selector:
     app: mosquitto
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  #loadBalancerIP: 192.168.1
   ports:
-      # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
-    - name: mqtt-srv
-      port: 31883
-      targetPort: mosq-prt
-      protocol: TCP
-      # Optional field
-      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
-      nodePort: 31883
-  externalIPs:
-    - 192.168.0.4
-    - 192.168.0.3
-    - 192.168.0.2
+      - port: 1883
+        targetPort: mosq-prt
+        name: mosquitto-tcp
+        protocol: TCP

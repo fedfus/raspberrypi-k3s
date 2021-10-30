@@ -17,9 +17,9 @@ spec:
       labels:
         app: nodered
     spec:
-      securityContext:
-        runAsUser: 1000
-        fsGroup: 1000
+      # securityContext:
+      #   runAsUser: 1000
+      #   fsGroup: 1000
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
@@ -30,14 +30,18 @@ spec:
             - containerPort: 1880
               name: nodered-tcp
               protocol: TCP
+            - containerPort: 48180
+              name: alexa-port
+              protocol: TCP
+            - containerPort: 3455
           resources: {}
           env:
             - name: TZ
               value: Europe/Rome
-            - name: PGID
-              value: "1000"
-            - name: PUID
-              value: "1000"
+            # - name: PGID
+            #   value: "1000"
+            # - name: PUID
+            #   value: "1000"
             - name: process.env.PORT
               value: "10880"
           volumeMounts:

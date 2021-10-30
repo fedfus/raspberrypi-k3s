@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mosquitto
-  namespace: iot  
+  namespace: mosquitto  
 spec:
   replicas: 1
   selector:
@@ -15,31 +15,25 @@ spec:
     spec:
       securityContext:
           fsGroup: 2000
+      #hostNetwork: true
+      #dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: mosquitto
           image: eclipse-mosquitto
           ports:
           - name: mosq-prt
-            containerPort: 1883
-          securityContext:
-            privileged: true
+            containerPort: 51883
           volumeMounts:
           - name: mosquitto-config-file
-            mountPath: /mosquitto/config
-            subPath: _mosquitto-config
-          - name: mosquitto-log
-            mountPath: /mosquitto/log
-            subPath: _mosquitto-log
-          - name: mosquitto-data
-            mountPath: /mosquitto/data
-            subPath: _mosquitto-data
+            mountPath: /mosquitto
+            subPath: _mosquitto
+          - name: mosquitto-config
+            mountPath: /mosquitto/config/mosquitto.conf
+            subPath: mosquitto.conf
       volumes:
       - name: mosquitto-config-file
         persistentVolumeClaim:
-          claimName: mosquitto-config-pvc
-      - name: mosquitto-data
-        persistentVolumeClaim:
-          claimName: mosquitto-data-pvc
-      - name: mosquitto-log
-        persistentVolumeClaim:
-          claimName: mosquitto-log-pvc
+          claimName: mosquitto-pvc
+      - name: mosquitto-config
+        configMap:
+          name: mosquitto-config
