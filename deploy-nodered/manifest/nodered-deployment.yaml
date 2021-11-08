@@ -34,6 +34,9 @@ spec:
               name: alexa-port
               protocol: TCP
             - containerPort: 3455
+            - containerPort: 34567
+              name: alexa-token-prt
+              protocol: TCP
           resources: {}
           env:
             - name: TZ

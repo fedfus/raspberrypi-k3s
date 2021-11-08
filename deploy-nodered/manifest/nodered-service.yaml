@@ -22,3 +22,7 @@ spec:
         targetPort: alexa-port
         name: alexa-tcp
         protocol: TCP
+      - port: 34566
+        targetPort: alexa-token-prt
+        name: alexa-token-prt
+        protocol: TCP
