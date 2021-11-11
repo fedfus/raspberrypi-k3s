@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: nodered-ing
   namespace: nodered
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 
 spec:
   rules:
@@ -10,9 +12,26 @@ spec:
       http:
         paths:
           - path: /
-            pathType: Exact
+            pathType: Prefix
             backend:
               service:
                 name:  nodered-service
                 port:
                   number: 48082
+    - host: rasp4modb1.fritz.box
+      http:
+        paths:
+          - path: /description.xml
+            pathType: Exact
+            backend:
+              service:
+                name:  nodered-service
+                port:
+                  number: 9080
+          - path: /api/
+            pathType: Prefix
+            backend:
+              service:
+                name:  nodered-service
+                port:
+                  number: 9080
