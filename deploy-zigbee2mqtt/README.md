@@ -1,0 +1,1 @@
+# manifest per il deploy del servizio zigbee2mqtt con mount della porta usb di un nodo specifico

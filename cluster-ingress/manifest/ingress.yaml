@@ -1,35 +1,47 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nodered-ingress
-  namespace: nodered
+  name: cluster-ingress
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
-
 spec:
   rules:
     - http:
         paths:
-          - path: /
+          - path: /nodered
             pathType: Prefix
             backend:
               service:
-                name:  nodered-service
+                name: nodered-service.nodered.svc.cluster.local
                 port:
                   number: 48082
+          - path: /homebridge
+            pathType: Prefix
+            backend:
+              service:
+                name: homebridge-http
+                port:
+                  number: 40080
+          - path: /zigbee2mqtt
+            pathType: Prefix
+            backend:
+              service:
+                name: zigbee2mqtt-service
+                port:
+                  number: 40083
     - http:
         paths:
           - path: /description.xml
             pathType: Exact
             backend:
               service:
-                name:  nodered-service
+                name: nodered-service
                 port:
                   number: 9080
           - path: /api/
             pathType: Prefix
             backend:
               service:
-                name:  nodered-service
+                name: nodered-service
                 port:
                   number: 9080

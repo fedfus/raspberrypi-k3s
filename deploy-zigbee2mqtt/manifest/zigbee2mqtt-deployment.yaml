@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zigbee2mqtt
+  namespace: zigbee2mqtt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zigbee2mqtt
+  template:
+    metadata:
+      labels:
+        app: zigbee2mqtt
+    spec:
+      nodeName: rasp3modb
+      containers:
+        - name: zigbee2mqtt
+          image: koenkk/zigbee2mqtt
+          securityContext:
+            privileged: true
+          ports:
+          - name: zb2mqtt-prt
+            containerPort: 9080
+          volumeMounts:
+          - name: usb-port
+            mountPath: /dev/ttyACM0
+          - name: zb2mqtt-data
+            mountPath: /app/data
+      volumes:
+      - name: usb-port
+        hostPath:
+          path: /dev/ttyACM0
+      - name: zb2mqtt-data
+        hostPath:
+          path: /home/pi/domotica/IOTstack/volumes/zigbee2mqtt/data

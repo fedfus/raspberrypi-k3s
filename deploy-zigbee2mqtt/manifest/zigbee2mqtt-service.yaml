@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zigbee2mqtt-service
+  namespace: zigbee2mqtt
+  annotations:
+    metallb.universe.tf/address-pool: default
+    metallb.universe.tf/allow-shared-ip: "zigbee2mqtt"
+spec:
+  selector:
+    app: zigbee2mqtt
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  ports:
+      - port: 48083
+        targetPort: zb2mqtt-prt
+        name: zb2mqtt-gui
+        protocol: TCP
