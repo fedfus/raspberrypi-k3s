@@ -1,0 +1,14 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nfs-pvc
+  namespace: cluster-nfs
+spec:
+  volumeName: nfs-pv
+  accessModes:
+  - ReadWriteOnce
+  #storageClassName: standard-rwo
+  storageClassName: slow
+  resources:
+    requests:
+      storage: 50Gi
