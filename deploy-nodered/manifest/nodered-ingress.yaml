@@ -4,32 +4,35 @@ metadata:
   name: nodered-ingress
   namespace: nodered
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/rewrite-target: /$2
+    traefik.ingress.kubernetes.io/enable-cors: "true"
 
 spec:
   rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name:  nodered-service
-                port:
-                  number: 48082
-    - http:
-        paths:
-          - path: /description.xml
-            pathType: Exact
-            backend:
-              service:
-                name:  nodered-service
-                port:
-                  number: 9080
-          - path: /api/
-            pathType: Prefix
-            backend:
-              service:
-                name:  nodered-service
-                port:
-                  number: 9080
+  - host: rasp4modb1.fritz.box
+    http:
+      paths:
+        - path: /nodered(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name:  nodered-service
+              port:
+                number: 48082
+              
+  - http:
+      paths:
+        - path: /description.xml
+          pathType: Exact
+          backend:
+            service:
+              name:  nodered-service
+              port:
+                number: 9080
+        - path: /api/
+          pathType: Prefix
+          backend:
+            service:
+              name:  nodered-service
+              port:
+                number: 9080
