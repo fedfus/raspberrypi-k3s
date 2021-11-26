@@ -5,11 +5,13 @@ metadata:
   namespace: homebridge
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+
 spec:
   rules:
-    - http:
+    - http: 
         paths:
-          - path: /homebridge
+          - path: /
             pathType: Prefix
             backend:
               service:

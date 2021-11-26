@@ -15,7 +15,7 @@ spec:
   - port: 40080
     targetPort: homebridge-port
     name: homebridge-gui
-  # - port: 53055
-  #   targetPort: homebridge-srv
-  #   name: homebridge-srv
+  # - port: 58891
+  #   targetPort: shelly
+  #   name: shelly
   type: LoadBalancer

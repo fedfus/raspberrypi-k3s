@@ -31,6 +31,8 @@ spec:
           name: homebridge-port
         - containerPort: 53055
           name: homebridge-srv
+        - containerPort: 58891
+          name: shelly
         env:
         - name: tz
           value: 'Europe/Rome'
