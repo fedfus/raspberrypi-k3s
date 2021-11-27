@@ -5,16 +5,32 @@ metadata:
   namespace: homebridge
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
-    traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+    # traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+    traefik.ingress.kubernetes.io/router.middlewares: homebridge-middleware@kubernetescrd
 
 spec:
   rules:
     - http: 
         paths:
-          - path: /
+          - path: /homebridge
             pathType: Prefix
             backend:
               service:
                 name: homebridge-service
                 port:
                   number: 40080
+
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: homebridge-middleware
+  namespace: homebridge
+spec:
+  stripPrefix:
+    prefixes:
+      - "/homebridge"
+      - "/nodered"
+    forceSlash: false

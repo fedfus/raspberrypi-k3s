@@ -6,18 +6,30 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
     traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-basic-auth@kubernetescrd
+
 
 spec:
   rules:
     - http:
         paths:
-          - path: /     
+          - path: /nodered     
             pathType: Prefix
             backend:
               service:
                 name:  nodered-service
                 port:
                   number: 48082
+    - http:
+        paths:
+          - path: /homebridge     
+            pathType: Prefix
+            backend:
+              service:
+                name:  homebridge-service
+                port:
+                  number: 40080
+    
     - http:
         paths:
           - path: /description.xml
@@ -34,3 +46,18 @@ spec:
                 name:  nodered-service
                 port:
                   number: 9080
+
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: nodered-middleware
+  namespace: nodered
+spec:
+  stripPrefix:
+    prefixes:
+      - "/nodered"
+      - "/homebridge"
+    forceSlash: false
