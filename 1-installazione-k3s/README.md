@@ -1,9 +1,9 @@
-# Pihole su RaspberryPi cluster K3S (1 master - 1 agent) 
+# Pihole su RaspberryPi cluster K3S (2 server - 1 agent) 
 
  
 ## Installazione [K3S](https://k3s.io/)
 
-### Nodo server
+Procederemo ora con la creazione di un cluster con 3 raspberry, installato k3s in alta affidabilità (control plane disponibile su due nodi master)
 	
 Per eseguire i seguenti step, è necessario diventare l'utente *root*
 	
@@ -17,30 +17,53 @@ modificare il file /boot/cmdline.txt aggiungendo alla fine del file (sulla stess
 ``` 
 cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1
 ```
-	
-- installazione di K3S 
-	
-```
-curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" K3S_NODE_NAME="rasp2ModB" sh -s - --disable=traefik
-```
-> il parametro --disable=traefik serve per non abilitare il deploy automatico di [Traefik](https://traefik.io/) incluso in k3s. Questo è utile se si ha la necessità di modificare la configurazione di default di traefik come, ad esmepio, utilizzare una porta diversa dalla 80. Procederemo poi ad installarlo manualmente più avanti. 
+---
 
-- al termine dell'installazione, andiamo a recuperare il node-token
+### Installazione k3s su nodo server primario
+	
+```
+curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" K3S_NODE_NAME="rasp4modb" INSTALL_K3S_EXEC="server --cluster-init" sh -s -
+```
+> aggiungendo il parametro --disable=traefik è possibile disabilitare il deploy automatico di [Traefik](https://traefik.io/) incluso in k3s. Questo è utile se si ha la necessità di modificare la configurazione di default di traefik come, ad esmepio, utilizzare una porta diversa dalla 80. 
+
+al termine dell'installazione, andiamo a recuperare il node-token
 	
 ```
 sudo cat /var/lib/rancher/k3s/server/node-token
 ```
-il token servirà nella configurazione dell'agent.
+il token servirà nella configurazione del secondo server e dell'agent.
+
+---
+
+### Installazione k3s su nodo server secondario
+Dopo aver acquisito i permessi di root
+
+```
+sudo su -
+```
+andiamo ad installare k3s sul secondo nodo server
+
+```
+curl -sfL https://get.k3s.io | K3S_NODE_NAME="serverName" K3S_TOKEN="node-token" INSTALL_K3S_EXEC="server --server https://ipNodoMaster:6443" sh -s -
+```
+
+dove 
+- **K3S_TOKEN** è il node-token recuperato precedentemente 
+- ***ipNodoMaster*** è l'indirizzo ip del nodo server configurato in precedenza
+- **K3S\_NODE_NAME** è il nome che si vuole assegnare all'agent
+
+---
+
 
 ### Nodo Agent
 
 ```
 sudo su -
 ```
-- installazione di K3s sul nodo agent
+installazione di K3s sul nodo agent
 
 ```
-curl -sfL https://get.k3s.io | K3S_TOKEN="TOKEN" K3S_URL="https://ipNodoMaster:6443" K3S_NODE_NAME="servername" sh -
+curl -sfL https://get.k3s.io | K3S_TOKEN="node-token" K3S_URL="https://ipNodoMaster:6443" K3S_NODE_NAME="servername" sh -
 ```
 dove 
 
