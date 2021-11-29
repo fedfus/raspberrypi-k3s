@@ -33,4 +33,4 @@ spec:
           path: /dev/ttyACM0
       - name: zb2mqtt-data
         hostPath:
-          path: /home/pi/domotica/IOTstack/volumes/zigbee2mqtt/data
+          path: /home/pi/usb/_zigbee2mqtt

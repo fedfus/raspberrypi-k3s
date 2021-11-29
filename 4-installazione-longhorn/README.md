@@ -88,9 +88,37 @@ echo 'UUID='$(blkid -s UUID -o value /dev/sda1) '/var/lib/longhorn ext4 defaults
 
 Di seguito procederemo con l'installazione della versione 1.2.2 utilizzando `kubectl` ma è possibile anche installarlo tramite `helm` o direttamente dal Rancher Catalog App. Per questi ultimi due [rimando alla documentazione ufficiale](https://longhorn.io/docs/1.2.2/deploy/install/)
 
-Per procedere, basterà eseguire il comando 
+Longhorn è compatibile con processori arm, ma solo a 64bit. Il mio cluster è composto da 3 raspberry, di cui però uno è a 32bit (rasp pi2 mod B v1.1) . 
+
+Per procedere quindi all'installazione, andremo a modificare le configurazioni in modo da ignorare il nodo a 32bit, con uno dei tip suggeriti nella [documentazione ufficiale](https://longhorn.io/kb/tip-only-use-storage-on-a-set-of-nodes/#deploy-longhorn-components-only-on-a-specific-set-of-nodes).
+
+Per prima cosa aggiungiamo una label `storage=longhorn`ai nodi a 64bit che vogliamo utilizzare:
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.2.2/deploy/longhorn.yaml
+kubectl label nodes rasp3modb storage=longhorn 
 ```
+```
+kubectl label nodes rasp4modb storage=longhorn 
+```
+Fatto questo, andiamo a recuperare [dal repository ufficiale](https://github.com/longhorn/longhorn.git) il file di deploy longhorn.yaml :
+
+```
+wget https://raw.githubusercontent.com/longhorn/longhorn/master/deploy/longhorn.yaml
+```
+e andiamo a modificarlo togliendo il commento `#` da nodeSelector per 
+- longhorn-manager
+- longhorn-driver-deployer
+- longhorn-ui 
+
+```
+      nodeSelector:
+        storage: "longhorn"
+#        label-key2: "label-value2"
+```
+A questo punto andiamo ad installare longhorn facendo l'apply del [file appena modificato](./manifest/longhorn.yaml)
+
+```
+kubectl apply -f ./manifest/longhorn.yaml
+```
+
 verrà creato in automatico un nuovo namespace `longhorn-system`
