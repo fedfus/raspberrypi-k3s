@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: heimdall-ingress   # < name of ingress entry
+  namespace: heimdall      # < namespace where place the deployment and pods
+  annotations:
+    kubernetes.io/ingress.class: "nginx"   # < use the nginx ingress controller
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" # < communicate with the backend (service/pod)
+    cert-manager.io/cluster-issuer: "letsencrypt-prod" # < use letsencrypt-prod application in kubernetes to generate ssl certificate
+spec:
+  rules:
+  - host: heimdall.mydomain.com  # < hostname to access the heimdall
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: heimdall-service # < connect the ingress entry to service created earlier
+          servicePort: 443
+  tls: # < placing a host in the TLS config will indicate a cert should be created
+  - hosts:
+    - heimdall.mydomain.com  # < hostname to access the heimdall
+    secretName: heimdall-mydomain-tls # < cert-manager will store the created certificate in this secret.

@@ -1,24 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: homebridge
-  namespace: homebridge
   labels:
     app: homebridge
+  name: homebridge
+  namespace: homebridge
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: homebridge
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
         app: homebridge
       name: homebridge
     spec:
-      # securityContext:
-      #   runAsUser: 1000
-      #   fsGroup: 1000
       terminationGracePeriodSeconds: 30
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
@@ -33,14 +32,10 @@ spec:
           name: homebridge-srv
         - containerPort: 58891
           name: shelly
+        resources: {}
         env:
         - name: tz
           value: 'Europe/Rome'
-        # You can change these to ID values to 1000 (ubuntu user) if not using Bluetooth
-        # - name: PUID
-        #   value: '0'
-        # - name: PGID
-        #   value: '0'
         - name: HOMEBRIDGE_CONFIG_UI
           value: '1'
         - name: HOMEBRIDGE_CONFIG_UI_PORT

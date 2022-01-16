@@ -16,6 +16,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: homebridge-service
+                name: 
                 port:
                   number: 40080
