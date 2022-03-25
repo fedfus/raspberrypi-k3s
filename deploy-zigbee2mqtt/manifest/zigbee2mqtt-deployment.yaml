@@ -27,6 +27,13 @@ spec:
             mountPath: /dev/ttyACM0
           - name: zb2mqtt-data
             mountPath: /app/data
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "1000m"
       volumes:
       - name: usb-port
         hostPath:

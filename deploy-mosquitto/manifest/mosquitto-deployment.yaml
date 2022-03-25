@@ -19,7 +19,14 @@ spec:
       #dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: mosquitto
-          image: eclipse-mosquitto
+          image: arm32v6/eclipse-mosquitto
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           ports:
           - name: mosq-prt
             containerPort: 51883

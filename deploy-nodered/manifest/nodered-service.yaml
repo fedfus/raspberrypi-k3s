@@ -12,7 +12,7 @@ spec:
     app: nodered
   externalTrafficPolicy: Local
   type: LoadBalancer
-  loadBalancerIP: 192.168.0.238
+  #loadBalancerIP: 192.168.0.238
   ports:
       - port: 48082
         targetPort: nodered-tcp

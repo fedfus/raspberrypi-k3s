@@ -19,12 +19,19 @@ spec:
       name: nodered
     spec:
       terminationGracePeriodSeconds: 30
-      hostNetwork: true
+      hostNetwork: false
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: nodered
-          image: nodered/node-red:latest
+          image: nodered/node-red
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "2Gi"
+              cpu: "2000m"
           ports:
             - containerPort: 1880
               name: nodered-tcp
@@ -33,10 +40,11 @@ spec:
               name: alexa-port
               protocol: TCP
             - containerPort: 3455
+              name: port-3455
+              protocol: TCP
             - containerPort: 34568
               name: alexa-token-prt
               protocol: TCP
-          resources: {}
           env:
             - name: TZ
               value: Europe/Rome
