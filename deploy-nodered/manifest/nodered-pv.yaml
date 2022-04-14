@@ -8,7 +8,7 @@ spec:
   accessModes:
   - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: rasp4-local-storage
+  storageClassName: local-storage
   local:
     path: /home/pi/usb
   nodeAffinity:

@@ -19,7 +19,7 @@ spec:
       #dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: mosquitto
-          image: arm32v6/eclipse-mosquitto
+          image: eclipse-mosquitto
           resources:
             requests:
               memory: "64Mi"
