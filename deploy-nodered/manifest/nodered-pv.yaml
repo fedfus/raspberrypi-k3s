@@ -4,21 +4,19 @@ metadata:
   name: nodered-pv
 spec:
   capacity:
-    storage: 5Gi
+    storage: 20Gi
+  volumeMode: Filesystem
   accessModes:
-  - ReadWriteMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: local-storage
-  local:
-    path: /home/pi/usb
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - rasp4modb
+  storageClassName: longhorn
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeAttributes:
+      numberOfReplicas: '3'
+      staleReplicaTimeout: '2880'
+    volumeHandle: nodered
 
 
 

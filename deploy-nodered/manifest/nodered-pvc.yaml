@@ -8,9 +8,8 @@ metadata:
 spec:
   volumeName: nodered-pv
   accessModes:
-    - ReadWriteMany
-  storageClassName: local-storage
+    - ReadWriteOnce
+  storageClassName: longhorn
   resources:
     requests:
-      storage: 1Gi
-status: {}
+      storage: 20Gi
