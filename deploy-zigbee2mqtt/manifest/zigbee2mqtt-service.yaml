@@ -5,13 +5,13 @@ metadata:
   name: zigbee2mqtt-service
   namespace: zigbee2mqtt
   annotations:
-    metallb.universe.tf/address-pool: default
-    metallb.universe.tf/allow-shared-ip: "zigbee2mqtt"
+    metallb.universe.tf/allow-shared-ip: "domotica"
 spec:
   selector:
     app: zigbee2mqtt
   externalTrafficPolicy: Local
   type: LoadBalancer
+  loadBalancerIP: 192.168.0.245
   ports:
       - port: 48083
         targetPort: zb2mqtt-prt
