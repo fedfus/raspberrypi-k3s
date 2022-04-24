@@ -4,7 +4,7 @@ metadata:
   name: homebridge-service
   namespace: homebridge
   annotations:
-    metallb.universe.tf/allow-shared-ip: "domotica"
+    metallb.universe.tf/allow-shared-ip: "homebridge"
 spec:
   selector:
     app: homebridge

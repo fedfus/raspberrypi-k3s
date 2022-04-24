@@ -4,7 +4,7 @@ metadata:
   name: nodered-service
   namespace: nodered
   annotations:
-    metallb.universe.tf/allow-shared-ip: "domotica"
+    metallb.universe.tf/allow-shared-ip: "nodered"
 spec:
   selector:
     app: nodered

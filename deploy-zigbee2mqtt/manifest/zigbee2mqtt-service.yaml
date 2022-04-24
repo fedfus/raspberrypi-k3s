@@ -5,7 +5,7 @@ metadata:
   name: zigbee2mqtt-service
   namespace: zigbee2mqtt
   annotations:
-    metallb.universe.tf/allow-shared-ip: "domotica"
+    metallb.universe.tf/allow-shared-ip: "zigbee2mqtt"
 spec:
   selector:
     app: zigbee2mqtt

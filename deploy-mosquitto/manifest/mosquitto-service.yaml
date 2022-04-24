@@ -4,7 +4,7 @@ metadata:
   name: mosquitto-service
   namespace: mosquitto
   annotations:
-    metallb.universe.tf/allow-shared-ip: "domotica"
+    metallb.universe.tf/allow-shared-ip: "mosquitto"
 spec:
   selector:
     app: mosquitto
