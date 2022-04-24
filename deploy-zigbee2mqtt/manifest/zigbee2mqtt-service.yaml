@@ -11,9 +11,9 @@ spec:
     app: zigbee2mqtt
   externalTrafficPolicy: Local
   type: LoadBalancer
-  loadBalancerIP: 192.168.0.245
+  loadBalancerIP: 192.168.0.248
   ports:
-      - port: 48083
+      - port: 80
         targetPort: zb2mqtt-prt
         name: zb2mqtt-gui
         protocol: TCP
