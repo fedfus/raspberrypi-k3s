@@ -3,10 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: node-red
-  name: nodered-pvc
+  name: node-red-pvc
   namespace: nodered
 spec:
-  volumeName: nodered-pv
   accessModes:
     - ReadWriteOnce
   storageClassName: longhorn

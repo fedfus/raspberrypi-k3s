@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  # labels:
+  #   app: node-red
+  name: copy-pvc
+  namespace: copy-pv
+spec:
+  volumeName: copy-pv
+  accessModes:
+    - ReadWriteMany
+  storageClassName: local-storage
+  resources:
+    requests:
+      storage: 1Gi

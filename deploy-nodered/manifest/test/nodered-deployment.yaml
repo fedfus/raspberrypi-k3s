@@ -23,8 +23,6 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: nodered
-          securityContext:
-            privileged: true
           image: nodered/node-red
           imagePullPolicy: Always
           resources:
@@ -48,10 +46,6 @@ spec:
               name: alexa-token-prt
               protocol: TCP
           env:
-            - name: PGID
-              value: "1000"
-            - name: PUID
-              value: "1000"
             - name: TZ
               value: Europe/Rome
             - name: process.env.PORT
@@ -59,8 +53,8 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: nodered-pvc
-              subPath: _nodered
+              #subPath: _nodered
       volumes:
         - name: nodered-pvc
           persistentVolumeClaim:
-            claimName: nodered-pvc
+            claimName: node-red-pvc
