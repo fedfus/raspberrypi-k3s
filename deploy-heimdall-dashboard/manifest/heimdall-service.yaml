@@ -5,11 +5,14 @@ metadata:
   namespace: heimdall       # < namespace where place the deployment and pods
 spec:
   selector:
-    app: heimdall           # < reference to the deployment (connects with this deployment)
+    app: heimdall  
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  loadBalancerIP: 192.168.0.250
   ports:
     - name: http-80
       protocol: TCP
-      port: 38080
+      port: 80
     - name: https-443
       protocol: TCP
-      port: 38443
+      port: 443
