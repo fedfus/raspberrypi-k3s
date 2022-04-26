@@ -8,9 +8,8 @@ metadata:
 spec:
   volumeName: mosquitto-pv
   accessModes:
-    - ReadWriteMany
-  storageClassName: local-storage
+    - ReadWriteOnce
+  storageClassName: longhorn
   resources:
     requests:
-      storage: 2Gi
-status: {}
+      storage: 1Gi

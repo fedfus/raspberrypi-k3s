@@ -4,23 +4,19 @@ metadata:
   name: mosquitto-pv
 spec:
   capacity:
-    storage: 2Gi
+    storage: 1Gi
+  volumeMode: Filesystem
   accessModes:
-  - ReadWriteMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: local-storage
-  local:
-    path: /home/pi/usb
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - rasp4modb
-          - rasp3modb
-          # - rasp2modb
+  storageClassName: longhorn
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeAttributes:
+      numberOfReplicas: '3'
+      staleReplicaTimeout: '2880'
+    volumeHandle: mosquitto-pv
 
 
     
