@@ -22,5 +22,27 @@ spec:
            - rasp3modb
           # - rasp2modb
 
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: homebridge
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: longhorn
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeAttributes:
+      numberOfReplicas: '3'
+      staleReplicaTimeout: '2880'
+    volumeHandle: homebridge
 
+
+    
     
