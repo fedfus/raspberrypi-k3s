@@ -12,9 +12,21 @@ spec:
   type: LoadBalancer
   loadBalancerIP: 192.168.0.246
   ports:
-  - port: 80
-    targetPort: homebridge-port
-    name: homebridge-gui
+    - name: homebridge-gui
+      port: 80
+      targetPort: homebridge-port
+    - name: homebridge-ser
+      port: 53055    
+      targetPort: homebridge-srv
+    - name: shelly-prt
+      port: 58891    
+      targetPort: shelly
+    - name: whooks-prt
+      port: 51828    
+      targetPort: webhooks-prt
+    - name: brdge-prt
+      port: 52587    
+      targetPort: bridge-prt
   # - port: 58891
   #   targetPort: shelly
   #   name: shelly

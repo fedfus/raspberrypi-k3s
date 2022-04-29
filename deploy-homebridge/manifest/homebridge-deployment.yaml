@@ -19,7 +19,7 @@ spec:
       name: homebridge
     spec:
       terminationGracePeriodSeconds: 30
-      hostNetwork: true
+      #hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: homebridge
@@ -32,6 +32,10 @@ spec:
           name: homebridge-srv
         - containerPort: 58891
           name: shelly
+        - containerPort: 52587
+          name: bridge-prt
+        - containerPort: 51828
+          name: webhooks-prt
         resources: {}
         env:
         - name: tz
@@ -45,7 +49,12 @@ spec:
           mountPath: /homebridge
           subPath: _homebridge
           readOnly: false
+        - name: homebridge-new
+          mountPath: /homebridge-new
       volumes:
       - name: homebridge
         persistentVolumeClaim:
           claimName: homebridge-data-pvc
+      - name: homebridge-new
+        persistentVolumeClaim:
+          claimName: homebridge-pvc
