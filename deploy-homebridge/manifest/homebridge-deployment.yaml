@@ -19,7 +19,7 @@ spec:
       name: homebridge
     spec:
       terminationGracePeriodSeconds: 30
-      #hostNetwork: true
+      hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: homebridge
