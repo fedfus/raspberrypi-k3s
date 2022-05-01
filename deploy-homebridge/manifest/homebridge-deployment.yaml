@@ -54,7 +54,4 @@ spec:
       volumes:
       - name: homebridge
         persistentVolumeClaim:
-          claimName: homebridge-data-pvc
-      - name: homebridge-new
-        persistentVolumeClaim:
           claimName: homebridge-pvc

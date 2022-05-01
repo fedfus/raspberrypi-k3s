@@ -10,7 +10,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /home/pi/usb/_nodered
+    path: /home/pi/usb/_homebridge
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -18,7 +18,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - rasp4modb
+          - rasp3modb
 
 
 

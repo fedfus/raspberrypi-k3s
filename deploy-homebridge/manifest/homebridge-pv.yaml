@@ -4,35 +4,10 @@ metadata:
   name: homebridge-pv
 spec:
   capacity:
-    storage: 2Gi
-  accessModes:
-  - ReadWriteMany
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: local-storage
-  local:
-    path: /home/pi/usb
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          #- rasp4modb
-           - rasp3modb
-          # - rasp2modb
-
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: homebridge
-spec:
-  capacity:
     storage: 5Gi
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: longhorn
   csi:
