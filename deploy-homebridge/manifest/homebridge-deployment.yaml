@@ -48,9 +48,6 @@ spec:
         - name: homebridge
           mountPath: /homebridge
           subPath: _homebridge
-          readOnly: false
-        - name: homebridge-new
-          mountPath: /homebridge-new
       volumes:
       - name: homebridge
         persistentVolumeClaim:
