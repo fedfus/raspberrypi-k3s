@@ -10,7 +10,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /home/pi/usb/_mosquitto
+    path: /home/pi/usb/_homebridge
   nodeAffinity:
     required:
       nodeSelectorTerms:

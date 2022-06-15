@@ -32,6 +32,10 @@ spec:
           name: homebridge-srv
         - containerPort: 58891
           name: shelly
+        - containerPort: 52587
+          name: bridge-prt
+        - containerPort: 51828
+          name: webhooks-prt
         resources: {}
         env:
         - name: tz
@@ -44,8 +48,7 @@ spec:
         - name: homebridge
           mountPath: /homebridge
           subPath: _homebridge
-          readOnly: false
       volumes:
       - name: homebridge
         persistentVolumeClaim:
-          claimName: homebridge-data-pvc
+          claimName: homebridge-pvc
