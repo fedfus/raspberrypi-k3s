@@ -14,12 +14,24 @@ spec:
         name: volume-migration
     spec:
       restartPolicy: Never
+      initContainers:
+        - name: copy
+          image: ubuntu:xenial
+          tty: true
+          command: [ "/bin/sh" ]
+          args: [ "-c", "cp -r -v /mnt/old/* /mnt/new" ]       
+          volumeMounts:
+            - name: old-vol
+              mountPath: /mnt/old
+            - name: new-vol
+              mountPath: /mnt/new
+              subPath: _nodered
       containers:
         - name: volume-migration
           image: ubuntu:xenial
           tty: true
           command: [ "/bin/sh" ]
-          args: [ "-c", "cp -r -v /mnt/old/* /mnt/new" ]
+          args: [ "-c", "chown -R 1000:1000 /mnt/new" ]
           volumeMounts:
             - name: old-vol
               mountPath: /mnt/old
