@@ -1,0 +1,2044 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"argocd-cm","app.kubernetes.io/part-of":"argocd"},"name":"argocd-cm","namespace":"argocd"}}
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-cm
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"argocd-rbac-cm","app.kubernetes.io/part-of":"argocd"},"name":"argocd-rbac-cm","namespace":"argocd"}}
+  labels:
+    app.kubernetes.io/name: argocd-rbac-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-rbac-cm
+---
+apiVersion: v1
+data:
+  ssh_known_hosts: |-
+    bitbucket.org ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAubiN81eDcafrgMeLzaFPsw2kNvEcqTKl/VqLat/MaB33pZy0y3rJZtnqwR2qOOvbwKZYKiEO1O6VqNEBxKvJJelCq0dTXWT5pbO2gDXC6h6QDXCaHo6pOHGPUy+YBaGQRGuSusMEASYiWunYN0vCAI8QaXnWMXNMdFP3jHAJH0eDsoiGnLPBlBp4TNm6rYI74nMzgz3B9IikW4WVK+dc8KZJZWYjAuORU3jc1c/NPskD2ASinf8v3xnfXeukU0sJ5N6m5E8VLjObPEO+mN2t/FZTMZLiFqPWc/ALSqnMnnhwrNi2rbfg/rd/IpL8Le3pSBne8+seeFVBoGqzHM9yXw==
+    github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+    gitlab.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoohFzgbEY=
+    gitlab.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf
+    gitlab.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsj2bNKTBSpIYDEGk9KxsGh3mySTRgMtXL583qmBpzeQ+jqCMRgBqB98u3z++J1sKlXHWfM9dyhSevkMwSbhoR8XIq/U0tCNyokEi/ueaBMCvbcTHhO7FcwzY92WK4Yt0aGROY5qX2UKSeOvuP4D6TPqKF1onrSzH9bx9XUf2lEdWT/ia1NEKjunUqu1xOB/StKDHMoX4/OKyIzuS0q/T1zOATthvasJFoPrAjkohTyaDUz2LN5JoH839hViyEG82yB+MjcFV5MU3N1l1QL3cVUCh93xSaua1N85qivl+siMkPGbO5xR/En4iEY6K2XPASUEMaieWVNTRCtJ4S8H+9
+    ssh.dev.azure.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7Hr1oTWqNqOlzGJOfGJ4NakVyIzf1rXYd4d7wo6jBlkLvCA4odBlL0mDUyZ0/QUfTTqeu+tm22gOsv+VrVTMk6vwRU75gY/y9ut5Mb3bR5BV58dKXyq9A9UeB5Cakehn5Zgm6x1mKoVyf+FFn26iYqXJRgzIZZcZ5V6hrE0Qg39kZm4az48o0AUbf6Sp4SLdvnuMa2sVNwHBboS7EJkm57XQPVU3/QpyNLHbWDdzwtrlS+ez30S3AdYhLKEOxAG8weOnyrtLJAUen9mTkol8oII1edf7mWWbWVf0nBmly21+nZcmCTISQBtdcyPaEno7fFQMDD26/s0lfKob4Kw8H
+    vs-ssh.visualstudio.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7Hr1oTWqNqOlzGJOfGJ4NakVyIzf1rXYd4d7wo6jBlkLvCA4odBlL0mDUyZ0/QUfTTqeu+tm22gOsv+VrVTMk6vwRU75gY/y9ut5Mb3bR5BV58dKXyq9A9UeB5Cakehn5Zgm6x1mKoVyf+FFn26iYqXJRgzIZZcZ5V6hrE0Qg39kZm4az48o0AUbf6Sp4SLdvnuMa2sVNwHBboS7EJkm57XQPVU3/QpyNLHbWDdzwtrlS+ez30S3AdYhLKEOxAG8weOnyrtLJAUen9mTkol8oII1edf7mWWbWVf0nBmly21+nZcmCTISQBtdcyPaEno7fFQMDD26/s0lfKob4Kw8H
+    github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+    github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"ssh_known_hosts":"bitbucket.org ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAubiN81eDcafrgMeLzaFPsw2kNvEcqTKl/VqLat/MaB33pZy0y3rJZtnqwR2qOOvbwKZYKiEO1O6VqNEBxKvJJelCq0dTXWT5pbO2gDXC6h6QDXCaHo6pOHGPUy+YBaGQRGuSusMEASYiWunYN0vCAI8QaXnWMXNMdFP3jHAJH0eDsoiGnLPBlBp4TNm6rYI74nMzgz3B9IikW4WVK+dc8KZJZWYjAuORU3jc1c/NPskD2ASinf8v3xnfXeukU0sJ5N6m5E8VLjObPEO+mN2t/FZTMZLiFqPWc/ALSqnMnnhwrNi2rbfg/rd/IpL8Le3pSBne8+seeFVBoGqzHM9yXw==\ngithub.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==\ngitlab.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoohFzgbEY=\ngitlab.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf\ngitlab.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsj2bNKTBSpIYDEGk9KxsGh3mySTRgMtXL583qmBpzeQ+jqCMRgBqB98u3z++J1sKlXHWfM9dyhSevkMwSbhoR8XIq/U0tCNyokEi/ueaBMCvbcTHhO7FcwzY92WK4Yt0aGROY5qX2UKSeOvuP4D6TPqKF1onrSzH9bx9XUf2lEdWT/ia1NEKjunUqu1xOB/StKDHMoX4/OKyIzuS0q/T1zOATthvasJFoPrAjkohTyaDUz2LN5JoH839hViyEG82yB+MjcFV5MU3N1l1QL3cVUCh93xSaua1N85qivl+siMkPGbO5xR/En4iEY6K2XPASUEMaieWVNTRCtJ4S8H+9\nssh.dev.azure.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7Hr1oTWqNqOlzGJOfGJ4NakVyIzf1rXYd4d7wo6jBlkLvCA4odBlL0mDUyZ0/QUfTTqeu+tm22gOsv+VrVTMk6vwRU75gY/y9ut5Mb3bR5BV58dKXyq9A9UeB5Cakehn5Zgm6x1mKoVyf+FFn26iYqXJRgzIZZcZ5V6hrE0Qg39kZm4az48o0AUbf6Sp4SLdvnuMa2sVNwHBboS7EJkm57XQPVU3/QpyNLHbWDdzwtrlS+ez30S3AdYhLKEOxAG8weOnyrtLJAUen9mTkol8oII1edf7mWWbWVf0nBmly21+nZcmCTISQBtdcyPaEno7fFQMDD26/s0lfKob4Kw8H\nvs-ssh.visualstudio.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7Hr1oTWqNqOlzGJOfGJ4NakVyIzf1rXYd4d7wo6jBlkLvCA4odBlL0mDUyZ0/QUfTTqeu+tm22gOsv+VrVTMk6vwRU75gY/y9ut5Mb3bR5BV58dKXyq9A9UeB5Cakehn5Zgm6x1mKoVyf+FFn26iYqXJRgzIZZcZ5V6hrE0Qg39kZm4az48o0AUbf6Sp4SLdvnuMa2sVNwHBboS7EJkm57XQPVU3/QpyNLHbWDdzwtrlS+ez30S3AdYhLKEOxAG8weOnyrtLJAUen9mTkol8oII1edf7mWWbWVf0nBmly21+nZcmCTISQBtdcyPaEno7fFQMDD26/s0lfKob4Kw8H\ngithub.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=\ngithub.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl"},"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"argocd-ssh-known-hosts-cm","app.kubernetes.io/part-of":"argocd"},"name":"argocd-ssh-known-hosts-cm","namespace":"argocd"}}
+  labels:
+    app.kubernetes.io/name: argocd-ssh-known-hosts-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-ssh-known-hosts-cm
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":null,"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"argocd-tls-certs-cm","app.kubernetes.io/part-of":"argocd"},"name":"argocd-tls-certs-cm","namespace":"argocd"}}
+  labels:
+    app.kubernetes.io/name: argocd-tls-certs-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-tls-certs-cm
+---
+apiVersion: v1
+data:
+  admin.password: JDJhJDEwJFdQZnFMbTE2OXAxVnhDbkFGUmhhTGUyT21TRm5VZnlOY001US8ucWFJOHBNM01PRXBIWUNh
+  admin.passwordMtime: MjAyMi0wNC0xNFQyMToxNjozMlo=
+  server.secretkey: N0YzNGlkNWRhR0lWUUV3b05aRy9wQVd0bkU3c2szZ251WUtZMmJ1SFB6UT0=
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURZekNDQWt1Z0F3SUJBZ0lSQUpxVlZOdUdsNnRHMCtkcDZ3UGw2TVF3RFFZSktvWklodmNOQVFFTEJRQXcKRWpFUU1BNEdBMVVFQ2hNSFFYSm5ieUJEUkRBZUZ3MHlNakEwTVRReU1ERXlNakZhRncweU16QTBNVFF5TURFeQpNakZhTUJJeEVEQU9CZ05WQkFvVEIwRnlaMjhnUTBRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3CmdnRUtBb0lCQVFEUU9LNGFhTWxtSVQ2M3psbm40NEhuQnFOR3dOdW9EYkhZZ3N1Q3VKTUVuTkJ5WDNoaUM5dVoKeHdFNkthZ21xMU50NmRuTlFXMzJLZmFzV0xlRzd0Q2JWRThuaWs1dEZYR3JjVE16Y0pWY1lCVllWOS9aZDZhcQpSbWRmQkxZVzFiV0RCZURUOG5ZZExyWHh0WWJmRGtKb09SL0l6WG9vMmdFcERMc0g5V3pWYm9CYy81cEZ2UXU3CkdMUW1qazBRVWZjRmJzWEswREQrRnRBUnhGVUsrSVpqckZSK2RnWWNZUVkyUTcvdHBuR1M1RUFOeDl3RTBQU2oKcTVrNHJ0aUJkSGVCWUVxMlFpbFhYOXhsWktWMUNQRWttdnlGKzhxbHlhRkQwM2lzK2ZocjR0M0NXQ1BxaVk5cwp1RGl5OGxQVGlPVHYweVFmT3Y1Ly9oRVdwcFduMGJTSEFnTUJBQUdqZ2JNd2diQXdEZ1lEVlIwUEFRSC9CQVFECkFnV2dNQk1HQTFVZEpRUU1NQW9HQ0NzR0FRVUZCd01CTUF3R0ExVWRFd0VCL3dRQ01BQXdld1lEVlIwUkJIUXcKY29JSmJHOWpZV3hvYjNOMGdnMWhjbWR2WTJRdGMyVnlkbVZ5Z2hSaGNtZHZZMlF0YzJWeWRtVnlMbUZ5WjI5agpaSUlZWVhKbmIyTmtMWE5sY25abGNpNWhjbWR2WTJRdWMzWmpnaVpoY21kdlkyUXRjMlZ5ZG1WeUxtRnlaMjlqClpDNXpkbU11WTJ4MWMzUmxjaTVzYjJOaGJEQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUF2WVNkS29lRndRWUMKeWx5Y2ZxU0s3L1dyM1RyNU1veS9UQk9vR3c3YUNKaWlkZTkzMnlBdUdiZlkzVmVpS1M2Vi9EUk9zM1VPZjh6NAo4dWZPTkNXSVRLSDF0S1hHRU9YaXp2RS8xeWphVGJsZjFsYUNlcjg5dHplMHMvNUl3NlF0bmVIZk0yS0VvcDE1Ckt1cGxwU2JHbDVKQ2IxVTFLNDNSMC9OMUF0Zm1URGZsZHZDcFZqK0VYZVVLQmVvdlJLK2hxZUNEY216cjBHcnAKdjlEL3U5cjZDYkg3RjNIRTl5NUdIdTYyOXR2T09wZHI4aXA4M2R5alBieU9rNWdwWTVCOTRnU3pvRTVud0dKNgp4dXNSbERDTi9IYjZUcHYvQW93UzNrTTlDZlNBWGpDUnZTUk53V2RYNG5HMFFrNjNEVGp2Zkh1QjRNTjJzN1BaCis0Skt1U2VuNkE9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+  tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBMERpdUdtakpaaUUrdDg1WjUrT0I1d2FqUnNEYnFBMngySUxMZ3JpVEJKelFjbDk0CllndmJtY2NCT2ltb0pxdFRiZW5aelVGdDlpbjJyRmkzaHU3UW0xUlBKNHBPYlJWeHEzRXpNM0NWWEdBVldGZmYKMlhlbXFrWm5Yd1MyRnRXMWd3WGcwL0oySFM2MThiV0czdzVDYURrZnlNMTZLTm9CS1F5N0IvVnMxVzZBWFArYQpSYjBMdXhpMEpvNU5FRkgzQlc3Rnl0QXcvaGJRRWNSVkN2aUdZNnhVZm5ZR0hHRUdOa08vN2FaeGt1UkFEY2ZjCkJORDBvNnVaT0s3WWdYUjNnV0JLdGtJcFYxL2NaV1NsZFFqeEpKcjhoZnZLcGNtaFE5TjRyUG40YStMZHdsZ2oKNm9tUGJMZzRzdkpUMDRqazc5TWtIenIrZi80UkZxYVZwOUcwaHdJREFRQUJBb0lCQVFDRFVLdWtKaCtWbERQTQprWXVyclpRNEVieVpHM21yNDI4Y24yZ2ZPYTRtUTR0R0JpV1NsKzNYYm1TOHZKYTZSR1FxTmtmUXBZbm1yQkpRCklPY2xacWtTdkxucXN0UEJBYndkSmhmblFnSkFMcXhuZVl2SHh5akp5L3JYTnM1cldqM05zc0JXaWx1cERkTmEKNjJOeWVyaXdxQTMrZ20rZklkV0hnT3JYR3hXWEI2UE43eUI2cWdWR0dpY2tGbkZDaWluL1F5dCtYbitLMmFWbwpCQ0Ntd1A0aDk4YWtBbzVHUld3MjhDMFYxcmxkbCtxMm42UFFabjZGc2VJWFY3OE1uWlBWK3FNSG1GTisyeUpaClRYZGtqbjhXb0RuTlRuNFBhZ29PeS9LMzRRSGRSdlQvdGZxQ3JNbnlETWJLU3JUamlIV3JrVFB3cWZDY25jR28KNlI0L2JWV0pBb0dCQU5IbkRKVmt3RmtQbXh6N2x0dVdWQkVYMlJpSGJVSk9BUUxxZjJKRWJ1NGtxcDBFY3FqcQpLWFBxMVlNU0p5dEtJaXE1Zkt5VU01RjVVbkt6UXYvdDcrcTVoRDZuem0rb1Y1YlVHQXF4STdVMlVrUWl1aHVwCi9GQ1c0aHBjSTZmOGNrOFg5R0Job25GNG1yRXJlTlYvSFErZDloWkNBNWdkZUVEdTU5VGcvZXNEQW9HQkFQM3oKSGJMYXR6MXN3WksrY0k1OUplYTJTTlk1OE5qMnMxdzBITGIvdS9COXB3RFlPOGE4TFBicGk4aFFIR0dxWEI0UwpXNEo4eUsxUHVEOG91d2hWekVLVW51YWdFeGdBMW1EdDlIUnpHbGxXc3VmaXExKzZJS09EaGpMSzFYa3lFbGNXCi9NbjBMRTRoZG16Ym5BTE5xaVNEeVg4emJoV0xldzEyNnJxTiszY3RBb0dBZUp1ekxsQkMrYW11N2h0ZUZuU3QKZjFqZHBHdUVpem00K1F6Mi91YmxlcTdVM2Y0RlNDdXNmKytxbVhLZjBRNzZ6T1BoMEdRanNXNHR3cnhnUGlCZwozOVdUT0ZGQm5BVDF0elBOVUs5eUhoakZjbU1sM3Vsd2tubndGMGRrTVkwcnZXaTlRWGc0Vjh6OXpkbDF4KzhQCktyOFAvTUFYd3BzRVV3TXpjSzJMR1RNQ2dZQlh5VFlJQU9GOUkxNWJHdWdQNmFVemR1b0EzRENzMzhNcTZYelAKcWVIUEJiQzRjd2RlOE9mZVJ1ZWlURWN6WDgvT09XeFcxRW9PMTFNS3lrcTFXK3RyVExNTmFHS1JWcURGQ3gwSgpNRXo0ZXljSFQrMEwvMnlPK2NWblE0UytDNWdaY1FIYjBrT0trcmk4Y3NJZ21mWHAvNENsTHlNcjRYYWROZkY0Cm9lSSsxUUtCZ1FDRi9rd0hIZXlMaUdVZFlMZTVRbFRxM2M5bWI5NTZjbEpuTENWTW5PUGx0QVNrNnJLaEsrQXIKMThaSXc1NFVvK3FiVmxJbmxEalVEYjBjMVJRK09ITEZ3OTVWRWdXOUh0WGRiM0t2RENHbW10M2hqU1RaVXJWaApSLytWZFdycnN3a0tSaEEweDMwb0tBaUdXRDhTWVhwV0JJZnVIZ3ZyWXJlSGRqclQzL2wzM0E9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+kind: Secret
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Secret","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"argocd-secret","app.kubernetes.io/part-of":"argocd"},"name":"argocd-secret","namespace":"argocd"},"type":"Opaque"}
+  labels:
+    app.kubernetes.io/name: argocd-secret
+    app.kubernetes.io/part-of: argocd
+  name: argocd-secret
+type: Opaque
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: default
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
+status: {}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: longhorn
+operation:
+  initiatedBy:
+    username: admin
+  retry: {}
+  sync:
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    syncOptions:
+    - CreateNamespace=true
+    syncStrategy:
+      hook: {}
+spec:
+  destination:
+    namespace: longhorn-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+      - name: defaultSettings.systemManagedComponentsNodeSelector
+        value: 'storage: "longhorn"'
+      - name: service.ui.type
+        value: LoadBalancer
+      - name: service.ui.loadBalancerIP
+        value: 192.168.0.241
+      valueFiles:
+      - values.yaml
+    path: chart
+    repoURL: https://github.com/fedfus/longhorn.git
+    targetRevision: master
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+status:
+  health:
+    status: Progressing
+  history:
+  - deployStartedAt: "2022-04-24T08:27:53Z"
+    deployedAt: "2022-04-24T08:27:57Z"
+    id: 9
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    source:
+      helm:
+        parameters:
+        - name: defaultSettings.systemManagedComponentsNodeSelector
+          value: 'storage: "longhorn"'
+        - name: service.ui.port
+          value: "40085"
+        - name: service.ui.type
+          value: LoadBalancer
+        - name: service.ui.loadBalancerIP
+          value: 192.168.0.241
+        valueFiles:
+        - values.yaml
+      path: chart
+      repoURL: https://github.com/fedfus/longhorn.git
+      targetRevision: master
+  - deployStartedAt: "2022-04-24T08:28:04Z"
+    deployedAt: "2022-04-24T08:28:08Z"
+    id: 10
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    source:
+      helm:
+        parameters:
+        - name: defaultSettings.systemManagedComponentsNodeSelector
+          value: 'storage: "longhorn"'
+        - name: service.ui.port
+          value: "40085"
+        - name: service.ui.type
+          value: LoadBalancer
+        - name: service.ui.loadBalancerIP
+          value: 192.168.0.241
+        valueFiles:
+        - values.yaml
+      path: chart
+      repoURL: https://github.com/fedfus/longhorn.git
+      targetRevision: master
+  - deployStartedAt: "2022-04-24T08:29:26Z"
+    deployedAt: "2022-04-24T08:29:30Z"
+    id: 11
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    source:
+      helm:
+        parameters:
+        - name: defaultSettings.systemManagedComponentsNodeSelector
+          value: 'storage: "longhorn"'
+        - name: service.ui.port
+          value: "40085"
+        - name: service.ui.type
+          value: LoadBalancer
+        - name: service.ui.loadBalancerIP
+          value: 192.168.0.241
+        valueFiles:
+        - values.yaml
+      path: chart
+      repoURL: https://github.com/fedfus/longhorn.git
+      targetRevision: master
+  - deployStartedAt: "2022-04-24T19:37:32Z"
+    deployedAt: "2022-04-24T19:37:48Z"
+    id: 12
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    source:
+      helm:
+        parameters:
+        - name: defaultSettings.systemManagedComponentsNodeSelector
+          value: 'storage: "longhorn"'
+        - name: service.ui.port
+          value: "40085"
+        - name: service.ui.type
+          value: LoadBalancer
+        - name: service.ui.loadBalancerIP
+          value: 192.168.0.241
+        valueFiles:
+        - values.yaml
+      path: chart
+      repoURL: https://github.com/fedfus/longhorn.git
+      targetRevision: master
+  - deployStartedAt: "2022-04-24T19:41:40Z"
+    deployedAt: "2022-04-24T19:41:50Z"
+    id: 13
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    source:
+      helm:
+        parameters:
+        - name: defaultSettings.systemManagedComponentsNodeSelector
+          value: 'storage: "longhorn"'
+        - name: service.ui.port
+          value: "40085"
+        - name: service.ui.type
+          value: LoadBalancer
+        - name: service.ui.loadBalancerIP
+          value: 192.168.0.241
+        valueFiles:
+        - values.yaml
+      path: chart
+      repoURL: https://github.com/fedfus/longhorn.git
+      targetRevision: master
+  - deployStartedAt: "2022-04-24T20:33:15Z"
+    deployedAt: "2022-04-24T20:33:28Z"
+    id: 14
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    source:
+      helm:
+        parameters:
+        - name: defaultSettings.systemManagedComponentsNodeSelector
+          value: 'storage: "longhorn"'
+        - name: service.ui.type
+          value: LoadBalancer
+        - name: service.ui.loadBalancerIP
+          value: 192.168.0.241
+        valueFiles:
+        - values.yaml
+      path: chart
+      repoURL: https://github.com/fedfus/longhorn.git
+      targetRevision: master
+  - deployStartedAt: "2022-04-27T18:46:22Z"
+    deployedAt: "2022-04-27T18:47:37Z"
+    id: 15
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    source:
+      helm:
+        parameters:
+        - name: defaultSettings.systemManagedComponentsNodeSelector
+          value: 'storage: "longhorn"'
+        - name: service.ui.type
+          value: LoadBalancer
+        - name: service.ui.loadBalancerIP
+          value: 192.168.0.241
+        valueFiles:
+        - values.yaml
+      path: chart
+      repoURL: https://github.com/fedfus/longhorn.git
+      targetRevision: master
+  - deployStartedAt: "2022-04-28T12:01:44Z"
+    deployedAt: "2022-04-28T12:01:55Z"
+    id: 16
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    source:
+      helm:
+        parameters:
+        - name: defaultSettings.systemManagedComponentsNodeSelector
+          value: 'storage: "longhorn"'
+        - name: service.ui.type
+          value: LoadBalancer
+        - name: service.ui.loadBalancerIP
+          value: 192.168.0.241
+        valueFiles:
+        - values.yaml
+      path: chart
+      repoURL: https://github.com/fedfus/longhorn.git
+      targetRevision: master
+  - deployStartedAt: "2022-06-15T09:34:12Z"
+    deployedAt: "2022-06-15T09:34:34Z"
+    id: 17
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    source:
+      helm:
+        parameters:
+        - name: defaultSettings.systemManagedComponentsNodeSelector
+          value: 'storage: "longhorn"'
+        - name: service.ui.type
+          value: LoadBalancer
+        - name: service.ui.loadBalancerIP
+          value: 192.168.0.241
+        valueFiles:
+        - values.yaml
+      path: chart
+      repoURL: https://github.com/fedfus/longhorn.git
+      targetRevision: master
+  - deployStartedAt: "2022-06-15T18:53:09Z"
+    deployedAt: "2022-06-15T18:53:21Z"
+    id: 18
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    source:
+      helm:
+        parameters:
+        - name: defaultSettings.systemManagedComponentsNodeSelector
+          value: 'storage: "longhorn"'
+        - name: service.ui.type
+          value: LoadBalancer
+        - name: service.ui.loadBalancerIP
+          value: 192.168.0.241
+        valueFiles:
+        - values.yaml
+      path: chart
+      repoURL: https://github.com/fedfus/longhorn.git
+      targetRevision: master
+  operationState:
+    message: waiting for healthy state of apps/DaemonSet/longhorn-manager
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: 7c964068727688293a4df65d84ad7d8c58852d02
+        syncOptions:
+        - CreateNamespace=true
+        syncStrategy:
+          hook: {}
+    phase: Running
+    startedAt: "2022-06-15T21:22:15Z"
+    syncResult:
+      resources:
+      - group: policy
+        hookPhase: Succeeded
+        kind: PodSecurityPolicy
+        message: podsecuritypolicy.policy/longhorn-psp configured
+        name: longhorn-psp
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1beta1
+      - group: ""
+        hookPhase: Succeeded
+        kind: ServiceAccount
+        message: serviceaccount/longhorn-service-account unchanged
+        name: longhorn-service-account
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: ConfigMap
+        message: configmap/longhorn-default-setting unchanged
+        name: longhorn-default-setting
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: ConfigMap
+        message: configmap/longhorn-storageclass unchanged
+        name: longhorn-storageclass
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/backingimagemanagers.longhorn.io
+          configured
+        name: backingimagemanagers.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/backupvolumes.longhorn.io
+          configured
+        name: backupvolumes.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/backuptargets.longhorn.io
+          configured
+        name: backuptargets.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/backingimages.longhorn.io
+          configured
+        name: backingimages.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/sharemanagers.longhorn.io
+          configured
+        name: sharemanagers.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/recurringjobs.longhorn.io
+          configured
+        name: recurringjobs.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/backingimagedatasources.longhorn.io
+          configured
+        name: backingimagedatasources.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/engineimages.longhorn.io
+          configured
+        name: engineimages.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/settings.longhorn.io
+          configured
+        name: settings.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/replicas.longhorn.io
+          configured
+        name: replicas.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/backups.longhorn.io
+          configured
+        name: backups.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/nodes.longhorn.io configured
+        name: nodes.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/volumes.longhorn.io
+          configured
+        name: volumes.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/instancemanagers.longhorn.io
+          configured
+        name: instancemanagers.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apiextensions.k8s.io
+        hookPhase: Succeeded
+        kind: CustomResourceDefinition
+        message: customresourcedefinition.apiextensions.k8s.io/engines.longhorn.io
+          configured
+        name: engines.longhorn.io
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Succeeded
+        kind: ClusterRole
+        message: clusterrole.rbac.authorization.k8s.io/longhorn-role reconciled. clusterrole.rbac.authorization.k8s.io/longhorn-role
+          unchanged
+        name: longhorn-role
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Succeeded
+        kind: ClusterRoleBinding
+        message: clusterrolebinding.rbac.authorization.k8s.io/longhorn-bind reconciled.
+          clusterrolebinding.rbac.authorization.k8s.io/longhorn-bind unchanged
+        name: longhorn-bind
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Succeeded
+        kind: Role
+        message: role.rbac.authorization.k8s.io/longhorn-psp-role reconciled. role.rbac.authorization.k8s.io/longhorn-psp-role
+          unchanged
+        name: longhorn-psp-role
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Succeeded
+        kind: RoleBinding
+        message: rolebinding.rbac.authorization.k8s.io/longhorn-psp-binding reconciled.
+          rolebinding.rbac.authorization.k8s.io/longhorn-psp-binding unchanged
+        name: longhorn-psp-binding
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Service
+        message: service/longhorn-backend unchanged
+        name: longhorn-backend
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Service
+        message: service/longhorn-conversion-webhook unchanged
+        name: longhorn-conversion-webhook
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Service
+        message: service/longhorn-admission-webhook unchanged
+        name: longhorn-admission-webhook
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Service
+        message: service/longhorn-engine-manager unchanged
+        name: longhorn-engine-manager
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Service
+        message: service/longhorn-replica-manager unchanged
+        name: longhorn-replica-manager
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Succeeded
+        kind: Service
+        message: service/longhorn-frontend configured
+        name: longhorn-frontend
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: DaemonSet
+        message: daemonset.apps/longhorn-manager unchanged
+        name: longhorn-manager
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Succeeded
+        kind: Deployment
+        message: deployment.apps/longhorn-driver-deployer unchanged
+        name: longhorn-driver-deployer
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Succeeded
+        kind: Deployment
+        message: deployment.apps/longhorn-admission-webhook unchanged
+        name: longhorn-admission-webhook
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Succeeded
+        kind: Deployment
+        message: deployment.apps/longhorn-ui unchanged
+        name: longhorn-ui
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Succeeded
+        kind: Deployment
+        message: deployment.apps/longhorn-conversion-webhook unchanged
+        name: longhorn-conversion-webhook
+        namespace: longhorn-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 7c964068727688293a4df65d84ad7d8c58852d02
+      source:
+        helm:
+          parameters:
+          - name: defaultSettings.systemManagedComponentsNodeSelector
+            value: 'storage: "longhorn"'
+          - name: service.ui.type
+            value: LoadBalancer
+          - name: service.ui.loadBalancerIP
+            value: 192.168.0.241
+          valueFiles:
+          - values.yaml
+        path: chart
+        repoURL: https://github.com/fedfus/longhorn.git
+        targetRevision: master
+  reconciledAt: "2022-06-16T21:50:02Z"
+  resources:
+  - kind: ConfigMap
+    name: longhorn-default-setting
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - kind: ConfigMap
+    name: longhorn-storageclass
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: longhorn-admission-webhook
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: longhorn-backend
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: longhorn-conversion-webhook
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: longhorn-engine-manager
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: longhorn-frontend
+    namespace: longhorn-system
+    status: OutOfSync
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: longhorn-replica-manager
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: longhorn-service-account
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: backingimagedatasources.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: backingimagemanagers.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: backingimages.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: backups.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: backuptargets.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: backupvolumes.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: engineimages.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: engines.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: instancemanagers.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: nodes.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: recurringjobs.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: replicas.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: settings.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: sharemanagers.longhorn.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: volumes.longhorn.io
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      message: 'Waiting for daemon set "longhorn-manager" rollout to finish: 3 of
+        5 updated pods are available...'
+      status: Progressing
+    kind: DaemonSet
+    name: longhorn-manager
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: longhorn-admission-webhook
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: longhorn-conversion-webhook
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: longhorn-driver-deployer
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: longhorn-ui
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - group: policy
+    kind: PodSecurityPolicy
+    name: longhorn-psp
+    status: Synced
+    version: v1beta1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: longhorn-role
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: longhorn-bind
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: Role
+    name: longhorn-psp-role
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    name: longhorn-psp-binding
+    namespace: longhorn-system
+    status: Synced
+    version: v1
+  sourceType: Helm
+  summary:
+    images:
+    - longhornio/longhorn-manager:master-head
+    - longhornio/longhorn-ui:master-head
+  sync:
+    comparedTo:
+      destination:
+        namespace: longhorn-system
+        server: https://kubernetes.default.svc
+      source:
+        helm:
+          parameters:
+          - name: defaultSettings.systemManagedComponentsNodeSelector
+            value: 'storage: "longhorn"'
+          - name: service.ui.type
+            value: LoadBalancer
+          - name: service.ui.loadBalancerIP
+            value: 192.168.0.241
+          valueFiles:
+          - values.yaml
+        path: chart
+        repoURL: https://github.com/fedfus/longhorn.git
+        targetRevision: master
+    revision: 7c964068727688293a4df65d84ad7d8c58852d02
+    status: OutOfSync
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: zigbee2mqtt
+spec:
+  destination:
+    namespace: nodered
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: deploy-zigbee2mqtt/manifest
+    repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+    targetRevision: nodered
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+status:
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2022-04-14T20:56:09Z"
+    deployedAt: "2022-04-14T20:56:14Z"
+    id: 0
+    revision: f64f7da2e5f9ef10a37b499492b64f4f04b0b5ea
+    source:
+      path: deploy-zigbee2mqtt/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:15:39Z"
+    deployedAt: "2022-04-24T19:15:44Z"
+    id: 1
+    revision: d814162283dd6e3bc23b13f50542eaef27dd0f34
+    source:
+      path: deploy-zigbee2mqtt/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:16:37Z"
+    deployedAt: "2022-04-24T19:16:42Z"
+    id: 2
+    revision: d814162283dd6e3bc23b13f50542eaef27dd0f34
+    source:
+      path: deploy-zigbee2mqtt/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:37:37Z"
+    deployedAt: "2022-04-24T19:37:41Z"
+    id: 3
+    revision: d814162283dd6e3bc23b13f50542eaef27dd0f34
+    source:
+      path: deploy-zigbee2mqtt/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:41:43Z"
+    deployedAt: "2022-04-24T19:41:46Z"
+    id: 4
+    revision: d814162283dd6e3bc23b13f50542eaef27dd0f34
+    source:
+      path: deploy-zigbee2mqtt/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:51:32Z"
+    deployedAt: "2022-04-24T19:51:37Z"
+    id: 5
+    revision: cd913e6521e8077a8f3e1a9784d2f8ae70b0d9a5
+    source:
+      path: deploy-zigbee2mqtt/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-28T12:01:47Z"
+    deployedAt: "2022-04-28T12:01:51Z"
+    id: 6
+    revision: 692f93755f9870ee6630e7a64e56ae07c6651905
+    source:
+      path: deploy-zigbee2mqtt/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  operationState:
+    finishedAt: "2022-04-28T12:01:51Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: 692f93755f9870ee6630e7a64e56ae07c6651905
+        syncOptions:
+        - CreateNamespace=true
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: "2022-04-28T12:01:47Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Succeeded
+        kind: Namespace
+        message: namespace/nodered configured
+        name: nodered
+        namespace: ""
+        status: Synced
+        syncPhase: PreSync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Namespace
+        message: namespace/zigbee2mqtt unchanged
+        name: zigbee2mqtt
+        namespace: nodered
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/zigbee2mqtt-service unchanged
+        name: zigbee2mqtt-service
+        namespace: zigbee2mqtt
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/zigbee2mqtt configured
+        name: zigbee2mqtt
+        namespace: zigbee2mqtt
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: networking.k8s.io
+        hookPhase: Running
+        kind: Ingress
+        message: ingress.networking.k8s.io/zigbee2mqtt-ingress unchanged
+        name: zigbee2mqtt-ingress
+        namespace: zigbee2mqtt
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 692f93755f9870ee6630e7a64e56ae07c6651905
+      source:
+        path: deploy-zigbee2mqtt/manifest
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+  reconciledAt: "2022-06-16T21:50:02Z"
+  resources:
+  - kind: Namespace
+    name: zigbee2mqtt
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: zigbee2mqtt-service
+    namespace: zigbee2mqtt
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: zigbee2mqtt
+    namespace: zigbee2mqtt
+    status: Synced
+    version: v1
+  - group: networking.k8s.io
+    health:
+      status: Healthy
+    kind: Ingress
+    name: zigbee2mqtt-ingress
+    namespace: zigbee2mqtt
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    externalURLs:
+    - http://192.168.0.105/zigbee2mqtt
+    images:
+    - koenkk/zigbee2mqtt
+  sync:
+    comparedTo:
+      destination:
+        namespace: nodered
+        server: https://kubernetes.default.svc
+      source:
+        path: deploy-zigbee2mqtt/manifest
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+    revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mosquitto
+spec:
+  destination:
+    namespace: mosquitto
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: deploy-mosquitto/manifest
+    repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+    targetRevision: nodered
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+status:
+  health:
+    status: Progressing
+  history:
+  - deployStartedAt: "2022-04-24T19:16:10Z"
+    deployedAt: "2022-04-24T19:16:11Z"
+    id: 1
+    revision: 80aa79ea467aa11925dc39f913f3fe187861b327
+    source:
+      path: deploy-mosquitto/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:16:12Z"
+    deployedAt: "2022-04-24T19:16:12Z"
+    id: 2
+    revision: d814162283dd6e3bc23b13f50542eaef27dd0f34
+    source:
+      path: deploy-mosquitto/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:18:43Z"
+    deployedAt: "2022-04-24T19:18:43Z"
+    id: 3
+    revision: d814162283dd6e3bc23b13f50542eaef27dd0f34
+    source:
+      path: deploy-mosquitto/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:37:34Z"
+    deployedAt: "2022-04-24T19:37:38Z"
+    id: 4
+    revision: d814162283dd6e3bc23b13f50542eaef27dd0f34
+    source:
+      path: deploy-mosquitto/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:41:42Z"
+    deployedAt: "2022-04-24T19:41:43Z"
+    id: 5
+    revision: d814162283dd6e3bc23b13f50542eaef27dd0f34
+    source:
+      path: deploy-mosquitto/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:51:27Z"
+    deployedAt: "2022-04-24T19:51:28Z"
+    id: 6
+    revision: cd913e6521e8077a8f3e1a9784d2f8ae70b0d9a5
+    source:
+      path: deploy-mosquitto/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-26T19:39:04Z"
+    deployedAt: "2022-04-26T19:39:08Z"
+    id: 7
+    revision: f5537d93d6a566728bfa7a09247e8e7798634d3b
+    source:
+      path: deploy-mosquitto/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-28T12:01:45Z"
+    deployedAt: "2022-04-28T12:01:47Z"
+    id: 8
+    revision: 692f93755f9870ee6630e7a64e56ae07c6651905
+    source:
+      path: deploy-mosquitto/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-05-11T19:51:28Z"
+    deployedAt: "2022-05-11T19:51:30Z"
+    id: 9
+    revision: 3e6534a9a81fc06fd34d09858eb7a8095e847448
+    source:
+      path: deploy-mosquitto/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-06-16T20:41:41Z"
+    deployedAt: "2022-06-16T20:41:43Z"
+    id: 10
+    revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+    source:
+      path: deploy-mosquitto/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  operationState:
+    finishedAt: "2022-06-16T20:41:43Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+        syncOptions:
+        - CreateNamespace=true
+    phase: Succeeded
+    startedAt: "2022-06-16T20:41:41Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: Namespace
+        message: namespace/mosquitto unchanged
+        name: mosquitto
+        namespace: mosquitto
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ConfigMap
+        message: configmap/mosquitto-config unchanged
+        name: mosquitto-config
+        namespace: mosquitto
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: PersistentVolume
+        message: persistentvolume/mosquitto-pv unchanged
+        name: mosquitto-pv
+        namespace: mosquitto
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: PersistentVolumeClaim
+        message: persistentvolumeclaim/mosquitto-pvc unchanged
+        name: mosquitto-pvc
+        namespace: mosquitto
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/mosquitto-service unchanged
+        name: mosquitto-service
+        namespace: mosquitto
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/mosquitto configured
+        name: mosquitto
+        namespace: mosquitto
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+      source:
+        path: deploy-mosquitto/manifest
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+  reconciledAt: "2022-06-16T21:50:02Z"
+  resources:
+  - kind: ConfigMap
+    name: mosquitto-config
+    namespace: mosquitto
+    status: Synced
+    version: v1
+  - kind: Namespace
+    name: mosquitto
+    status: Synced
+    version: v1
+  - kind: PersistentVolume
+    name: mosquitto-pv
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: PersistentVolumeClaim
+    name: mosquitto-pvc
+    namespace: mosquitto
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: mosquitto-service
+    namespace: mosquitto
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      message: 'Waiting for rollout to finish: 0 of 1 updated replicas are available...'
+      status: Progressing
+    kind: Deployment
+    name: mosquitto
+    namespace: mosquitto
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - eclipse-mosquitto
+  sync:
+    comparedTo:
+      destination:
+        namespace: mosquitto
+        server: https://kubernetes.default.svc
+      source:
+        path: deploy-mosquitto/manifest
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+    revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nodered
+spec:
+  destination:
+    namespace: nodered
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: deploy-nodered/manifest
+    repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+    targetRevision: nodered
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+status:
+  health:
+    status: Progressing
+  history:
+  - deployStartedAt: "2022-06-15T21:25:45Z"
+    deployedAt: "2022-06-15T21:25:48Z"
+    id: 0
+    revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+    source:
+      path: deploy-nodered/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  operationState:
+    finishedAt: "2022-06-16T20:41:14Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        prune: true
+        resources:
+        - group: apps
+          kind: Deployment
+          name: nodered
+        revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+        syncOptions:
+        - CreateNamespace=true
+    phase: Succeeded
+    startedAt: "2022-06-16T20:41:08Z"
+    syncResult:
+      resources:
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/nodered configured
+        name: nodered
+        namespace: nodered
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+      source:
+        path: deploy-nodered/manifest
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+  reconciledAt: "2022-06-16T21:50:02Z"
+  resources:
+  - kind: Namespace
+    name: nodered
+    status: Synced
+    version: v1
+  - kind: PersistentVolume
+    name: nodered-pv
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: PersistentVolumeClaim
+    name: nodered-pvc
+    namespace: nodered
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: nodered-alexa-service
+    namespace: nodered
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: nodered-service
+    namespace: nodered
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      message: 'Waiting for rollout to finish: 0 of 1 updated replicas are available...'
+      status: Progressing
+    kind: Deployment
+    name: nodered
+    namespace: nodered
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - nodered/node-red
+  sync:
+    comparedTo:
+      destination:
+        namespace: nodered
+        server: https://kubernetes.default.svc
+      source:
+        path: deploy-nodered/manifest
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+    revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: homebridge
+spec:
+  destination:
+    namespace: homebridge
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: deploy-homebridge/manifest
+    repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+    targetRevision: nodered
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+status:
+  health:
+    status: Progressing
+  history:
+  - deployStartedAt: "2022-06-15T21:28:03Z"
+    deployedAt: "2022-06-15T21:28:06Z"
+    id: 0
+    revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+    source:
+      path: deploy-homebridge/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  operationState:
+    finishedAt: "2022-06-16T20:41:17Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        prune: true
+        resources:
+        - group: apps
+          kind: Deployment
+          name: homebridge
+        revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+        syncOptions:
+        - CreateNamespace=true
+    phase: Succeeded
+    startedAt: "2022-06-16T20:41:15Z"
+    syncResult:
+      resources:
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/homebridge configured
+        name: homebridge
+        namespace: homebridge
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+      source:
+        path: deploy-homebridge/manifest
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+  reconciledAt: "2022-06-16T21:50:02Z"
+  resources:
+  - kind: PersistentVolume
+    name: homebridge-pv
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: PersistentVolumeClaim
+    name: homebridge-pvc
+    namespace: homebridge
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: homebridge-service
+    namespace: homebridge
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      message: 'Waiting for rollout to finish: 0 of 1 updated replicas are available...'
+      status: Progressing
+    kind: Deployment
+    name: homebridge
+    namespace: homebridge
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - oznu/homebridge:latest
+  sync:
+    comparedTo:
+      destination:
+        namespace: homebridge
+        server: https://kubernetes.default.svc
+      source:
+        path: deploy-homebridge/manifest
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+    revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: heimdall
+spec:
+  destination:
+    namespace: heimdall
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: deploy-heimdall-dashboard/manifest
+    repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+    targetRevision: nodered
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - PruneLast=true
+status:
+  health:
+    status: Progressing
+  history:
+  - deployStartedAt: "2022-06-15T18:52:08Z"
+    deployedAt: "2022-06-15T18:52:10Z"
+    id: 0
+    revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+    source:
+      path: deploy-heimdall-dashboard/manifest
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  operationState:
+    finishedAt: "2022-06-16T20:41:26Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        prune: true
+        resources:
+        - group: apps
+          kind: Deployment
+          name: heimdall
+        revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+        syncOptions:
+        - CreateNamespace=true
+        - PruneLast=true
+    phase: Succeeded
+    startedAt: "2022-06-16T20:41:23Z"
+    syncResult:
+      resources:
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/heimdall configured
+        name: heimdall
+        namespace: heimdall
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+      source:
+        path: deploy-heimdall-dashboard/manifest
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+  reconciledAt: "2022-06-16T21:50:02Z"
+  resources:
+  - kind: Namespace
+    name: heimdall
+    status: Synced
+    version: v1
+  - kind: PersistentVolume
+    name: heimdall-pv
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: PersistentVolumeClaim
+    name: heimdall-pvc
+    namespace: heimdall
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: heimdall-service
+    namespace: heimdall
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      message: 'Waiting for rollout to finish: 0 of 1 updated replicas are available...'
+      status: Progressing
+    kind: Deployment
+    name: heimdall
+    namespace: heimdall
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - ghcr.io/linuxserver/heimdall
+  sync:
+    comparedTo:
+      destination:
+        namespace: heimdall
+        server: https://kubernetes.default.svc
+      source:
+        path: deploy-heimdall-dashboard/manifest
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+    revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metal-lb
+spec:
+  destination:
+    namespace: metallb-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: deploy-MetalLB/kustomize
+    repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+    targetRevision: nodered
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+status:
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2022-04-24T08:07:45Z"
+    deployedAt: "2022-04-24T08:07:47Z"
+    id: 0
+    revision: 80aa79ea467aa11925dc39f913f3fe187861b327
+    source:
+      path: deploy-MetalLB/kustomize
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:37:33Z"
+    deployedAt: "2022-04-24T19:37:38Z"
+    id: 1
+    revision: d814162283dd6e3bc23b13f50542eaef27dd0f34
+    source:
+      path: deploy-MetalLB/kustomize
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-24T19:41:41Z"
+    deployedAt: "2022-04-24T19:41:43Z"
+    id: 2
+    revision: d814162283dd6e3bc23b13f50542eaef27dd0f34
+    source:
+      path: deploy-MetalLB/kustomize
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  - deployStartedAt: "2022-04-28T12:01:44Z"
+    deployedAt: "2022-04-28T12:01:47Z"
+    id: 3
+    revision: 692f93755f9870ee6630e7a64e56ae07c6651905
+    source:
+      path: deploy-MetalLB/kustomize
+      repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+      targetRevision: nodered
+  operationState:
+    finishedAt: "2022-04-28T12:01:47Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: 692f93755f9870ee6630e7a64e56ae07c6651905
+        syncOptions:
+        - CreateNamespace=true
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: "2022-04-28T12:01:44Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: Namespace
+        message: namespace/metallb-system unchanged
+        name: metallb-system
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: policy
+        hookPhase: Running
+        kind: PodSecurityPolicy
+        message: podsecuritypolicy.policy/speaker configured
+        name: speaker
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1beta1
+      - group: policy
+        hookPhase: Running
+        kind: PodSecurityPolicy
+        message: podsecuritypolicy.policy/controller configured
+        name: controller
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1beta1
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/speaker unchanged
+        name: speaker
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/controller unchanged
+        name: controller
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ConfigMap
+        message: configmap/config unchanged
+        name: config
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRole
+        message: clusterrole.rbac.authorization.k8s.io/metallb-system:speaker reconciled.
+          clusterrole.rbac.authorization.k8s.io/metallb-system:speaker unchanged
+        name: metallb-system:speaker
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRole
+        message: clusterrole.rbac.authorization.k8s.io/metallb-system:controller reconciled.
+          clusterrole.rbac.authorization.k8s.io/metallb-system:controller unchanged
+        name: metallb-system:controller
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRoleBinding
+        message: clusterrolebinding.rbac.authorization.k8s.io/metallb-system:controller
+          reconciled. clusterrolebinding.rbac.authorization.k8s.io/metallb-system:controller
+          unchanged
+        name: metallb-system:controller
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRoleBinding
+        message: clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker
+          reconciled. clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker
+          unchanged
+        name: metallb-system:speaker
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: Role
+        message: role.rbac.authorization.k8s.io/pod-lister reconciled. role.rbac.authorization.k8s.io/pod-lister
+          unchanged
+        name: pod-lister
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: Role
+        message: role.rbac.authorization.k8s.io/controller reconciled. role.rbac.authorization.k8s.io/controller
+          unchanged
+        name: controller
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: Role
+        message: role.rbac.authorization.k8s.io/config-watcher reconciled. role.rbac.authorization.k8s.io/config-watcher
+          unchanged
+        name: config-watcher
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: RoleBinding
+        message: rolebinding.rbac.authorization.k8s.io/config-watcher reconciled.
+          rolebinding.rbac.authorization.k8s.io/config-watcher unchanged
+        name: config-watcher
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: RoleBinding
+        message: rolebinding.rbac.authorization.k8s.io/controller reconciled. rolebinding.rbac.authorization.k8s.io/controller
+          unchanged
+        name: controller
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: RoleBinding
+        message: rolebinding.rbac.authorization.k8s.io/pod-lister reconciled. rolebinding.rbac.authorization.k8s.io/pod-lister
+          unchanged
+        name: pod-lister
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: DaemonSet
+        message: daemonset.apps/speaker unchanged
+        name: speaker
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/controller unchanged
+        name: controller
+        namespace: metallb-system
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 692f93755f9870ee6630e7a64e56ae07c6651905
+      source:
+        path: deploy-MetalLB/kustomize
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+  reconciledAt: "2022-06-16T21:50:02Z"
+  resources:
+  - kind: ConfigMap
+    name: config
+    namespace: metallb-system
+    status: Synced
+    version: v1
+  - kind: Namespace
+    name: metallb-system
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: controller
+    namespace: metallb-system
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: speaker
+    namespace: metallb-system
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: DaemonSet
+    name: speaker
+    namespace: metallb-system
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: controller
+    namespace: metallb-system
+    status: Synced
+    version: v1
+  - group: policy
+    kind: PodSecurityPolicy
+    name: controller
+    status: Synced
+    version: v1beta1
+  - group: policy
+    kind: PodSecurityPolicy
+    name: speaker
+    status: Synced
+    version: v1beta1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: metallb-system:controller
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: metallb-system:speaker
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: metallb-system:controller
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: metallb-system:speaker
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: Role
+    name: config-watcher
+    namespace: metallb-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: Role
+    name: controller
+    namespace: metallb-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: Role
+    name: pod-lister
+    namespace: metallb-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    name: config-watcher
+    namespace: metallb-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    name: controller
+    namespace: metallb-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    name: pod-lister
+    namespace: metallb-system
+    status: Synced
+    version: v1
+  sourceType: Kustomize
+  summary:
+    images:
+    - quay.io/metallb/controller:v0.12.1
+    - quay.io/metallb/speaker:v0.12.1
+  sync:
+    comparedTo:
+      destination:
+        namespace: metallb-system
+        server: https://kubernetes.default.svc
+      source:
+        path: deploy-MetalLB/kustomize
+        repoURL: https://github.com/fedfus/raspberrypi-k3s.git
+        targetRevision: nodered
+    revision: c817ee6abeb9689e6105fd01c4ed78c3c37565e7
+    status: Synced
+---
