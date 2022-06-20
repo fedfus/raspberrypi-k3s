@@ -19,3 +19,16 @@ patches:
         path: /spec/template/spec/nodeSelector
         value: 
           storage: longhorn
+  - target:
+      kind: Service
+      name: longhorn-frontend
+    patch: |-
+      - op: replace
+        path: /spec/ports/0/port
+        value: 40085
+      - op: replace
+        path: /spec/type
+        value: LoadBalancer
+      - op: add
+        path: /spec/loadBalancerIP
+        value: 192.168.0.241
