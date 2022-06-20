@@ -8,14 +8,14 @@ patches:
       kind: Deployment
     patch: |-
       - op: add
-        path: /spec/nodeSelector
+        path: /spec/template/spec/nodeSelector
         value:
-          storage: "longhorn"
+          storage: longhorn
   - target:
       kind: DaemonSet
       name: longhorn-manager
     patch: |-
       - op: add
-        path: /spec/nodeSelector
+        path: /spec/template/spec/nodeSelector
         value: 
-          storage: "longhorn"
+          storage: longhorn
