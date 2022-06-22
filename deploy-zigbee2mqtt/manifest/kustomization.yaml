@@ -1,0 +1,5 @@
+resources:
+  - zigbee2mqtt-service.yaml
+  - zigbee2mqtt-deployment.yaml
+
+namespace: zigbee2mqtt

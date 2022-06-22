@@ -24,9 +24,6 @@ patches:
       name: longhorn-frontend
     patch: |-
       - op: replace
-        path: /spec/ports/0/port
-        value: 40085
-      - op: replace
         path: /spec/type
         value: LoadBalancer
       - op: add
